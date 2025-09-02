@@ -1,22 +1,19 @@
 services:
-  portfolio-admin:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    portfolio:
+        build:
+            context: .
+            dockerfile: Dockerfile
 
-    image: portfolio-admin:1.0.0
-    container_name: portfolio-admin
-    restart: unless-stopped
-    environment:
-    - PORTFOLIO_CMD_BE_BASE_URL=http://portfolio-cmd-be:8181/portfolio-cmd-be/v1/
-    - PORTFOLIO_QUERY_BE_BASE_URL=http://portfolio-query-be:8282/portfolio-query-be/v1/
+        image: portfolio:1.0.0
+        container_name: portfolio
+        restart: unless-stopped
 
-    ports:
-      - '4200:8383'
-    networks:
-      - arangonet
+        ports:
+            - '4200:8383'
+        networks:
+            - arangonet
 
 networks:
-  arangonet:
-    name: development_network
-    external: true
+    arangonet:
+        name: development_network
+        external: true

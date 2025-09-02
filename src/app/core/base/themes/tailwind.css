@@ -1,0 +1,48 @@
+@layer theme, base, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css' layer(utilities) important;
+
+@layer base {
+    @theme {
+        --font-sans: 'Inter', system-ui, sans-serif;
+
+        --color-black: #0d0907;
+
+        --color-primary: var(--color-violet-900);
+        --color-primary-50: var(--color-violet-50);
+        --color-primary-100: var(--color-violet-100);
+        --color-primary-200: var(--color-violet-200);
+        --color-primary-300: var(--color-violet-300);
+        --color-primary-400: var(--color-violet-400);
+        --color-primary-500: var(--color-violet-500);
+        --color-primary-600: var(--color-violet-600);
+        --color-primary-700: var(--color-violet-700);
+        --color-primary-800: var(--color-violet-800);
+        --color-primary-900: var(--color-violet-900);
+        --color-primary-950: var(--color-violet-950);
+        --color-primary-1000: #260036;
+        --color-primary-1100: #180022;
+
+        /* Neutral (optional, for consistency) */
+        --color-neutral-600: #525252;
+        --color-neutral-700: #404040;
+
+        /* Shadows */
+        --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+        /* Animations */
+        --animate-fade-in: fade-in 0.4s ease-out;
+        --animate-slide-up: slide-up 0.4s ease-out;
+        --animate-slide-left: slide-left 0.4s ease-out;
+    }
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(currentColor) !important;
+    }
+}

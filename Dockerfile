@@ -1,6 +1,6 @@
 # Define the base images for Node.js and Nginx
 ARG NGINX_IMAGE="public.ecr.aws/docker/library/nginx:alpine"
-ARG NODE_IMAGE="public.ecr.aws/docker/library/node:20.18.0-alpine"
+ARG NODE_IMAGE="public.ecr.aws/docker/library/node:22.16.0-alpine"
 
 # Stage 1: Build the Angular application
 FROM ${NODE_IMAGE} AS build-step
@@ -17,7 +17,7 @@ RUN chmod +x /app/setup-local.sh
 RUN /app/setup-local.sh
 
 # Stage 2: Serve the built app with Nginx
-FROM ${NGINX_IMAGE}
+FROM ${NGINX_IMAGE} AS runner
 
 # Copy custom Nginx configuration
 COPY nginx/docker-nginx-default.conf /etc/nginx/conf.d/default.conf
@@ -26,7 +26,7 @@ COPY nginx/docker-nginx-default.conf /etc/nginx/conf.d/default.conf
 COPY nginx/docker-defaults.sh /
 
 # Copy the built Angular app from the previous stage to the Nginx html directory
-COPY --from=build-step /app/dist/portfolio-admin-ui /usr/share/nginx/html/portfolio-admin
+COPY --from=build-step /app/dist/portfolio-ui /usr/share/nginx/html/portfolio
 
 # Expose port 8383 for the application
 EXPOSE 8383
