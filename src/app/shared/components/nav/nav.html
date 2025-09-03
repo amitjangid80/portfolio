@@ -1,0 +1,10 @@
+<div class="nav-container">
+    <nav class="nav" role="navigation" aria-label="Primary">
+        @for (nav of navList(); track nav) {
+            <div class="nav-item {{ nav.cssClass }}" [routerLink]="nav.route" routerLinkActive="nav-active">
+                <i class="pi {{ nav.icon }} text-xl"></i>
+                <span>{{ nav.title }}</span>
+            </div>
+        }
+    </nav>
+</div>

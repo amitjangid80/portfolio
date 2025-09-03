@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+
+@layer utilities {
+    @keyframes gradientShift {
+        0% {
+            background: radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #7c3aed 100%);
+        }
+        50% {
+            background: radial-gradient(125% 125% at 50% 80%, #f5f3ff 40%, #6d28d9 100%);
+        }
+        100% {
+            background: radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #7c3aed 100%);
+        }
+    }
+
+    .animate-gradient {
+        animation: gradientShift 15s ease-in-out infinite;
+    }
+}

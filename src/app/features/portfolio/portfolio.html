@@ -1,1 +1,18 @@
-<p>portfolio works!</p>
+<div class="relative min-h-screen w-full overflow-hidden">
+    <!-- Animated Radial Gradient Background -->
+    <div class="absolute inset-0 z-0 animate-gradient">
+    </div>
+
+    <!-- Content Wrapper -->
+    <div class="relative z-10 flex h-dvh w-dvw flex-col items-center">
+        <!-- Navigation -->
+        <header class="w-full max-w-7xl px-6 py-4">
+            <aj-nav></aj-nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex flex-1 w-full max-w-7xl px-6 py-6">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>
