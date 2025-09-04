@@ -11,9 +11,8 @@
 .nav {
     @apply flex gap-8 px-8 py-3 rounded-2xl border items-center justify-center;
     @apply bg-white/20 backdrop-blur-md border-white/30 shadow-lg;
-    /* Soft glowing edge for glassmorphism */
     box-shadow: 0 4px 30px rgba(37, 99, 235, 0.25);
-    animation: navFadeIn 1s ease-out 0.35s both;
+    animation: navFadeIn 1s ease-out 0.2s both;
     backface-visibility: hidden;
 }
 
@@ -22,13 +21,13 @@
         opacity: 0;
         transform: translateY(-15px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* --- Items --- */
 .nav-item {
     @apply relative flex items-center gap-2 px-3 text-base font-semibold text-gray-700 cursor-pointer transition-colors duration-300;
     backface-visibility: hidden;
@@ -40,17 +39,16 @@
     z-index: 10;
 }
 
-/* Underline */
 .nav-item::after {
-    content: '';
-    position: absolute;
     left: 0;
-    bottom: -0.25rem;
+    content: '';
     width: 100%;
     height: 4px;
+    bottom: -0.25rem;
+    position: absolute;
+    transform: scaleX(0);
     border-radius: 9999px;
     transform-origin: left;
-    transform: scaleX(0);
     background-color: currentColor;
     transition: transform 340ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -62,7 +60,6 @@
     transform: scaleX(1);
 }
 
-/* --- Icon colors --- */
 .nav-home i {
     @apply text-blue-600;
 }
@@ -79,7 +76,6 @@
     @apply text-teal-600;
 }
 
-/* --- Title adopts icon color on hover/active --- */
 .nav-home:hover,
 .nav-home.nav-active {
     @apply text-blue-600;

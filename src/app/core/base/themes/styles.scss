@@ -10,6 +10,7 @@
         -moz-text-rendering: optimizeLegibility;
         -webkit-text-rendering: optimizeLegibility;
         -webkit-tap-highlight-color: transparent;
+        font-family: "Share Tech Mono", monospace;
 
         /* Remove the focus ring */
         &:focus {
@@ -24,11 +25,11 @@
     /* HTML and Body default styles */
     html,
     body {
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 auto;
         width: 100%;
+        display: flex;
+        flex: 1 1 auto;
         min-height: 100%;
+        flex-direction: column;
         -webkit-font-smoothing: auto;
         -moz-osx-font-smoothing: auto;
     }

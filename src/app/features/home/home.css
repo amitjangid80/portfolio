@@ -1,0 +1,119 @@
+@import 'tailwindcss';
+
+:host {
+    @apply flex w-full;
+}
+
+@layer utilities {
+    .home-wrapper {
+        @apply px-6 flex py-12 w-full gap-12 flex-col items-center;
+    }
+
+    .home-wrapper img {
+        @apply w-full max-w-xs sm:max-w-sm md:max-w-md;
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-up {
+        animation: fadeUp 0.7s ease-out both;
+    }
+
+    @keyframes fadeLeftSmooth {
+        from {
+            opacity: 0;
+            transform: translateX(30px) scale(0.98);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+    }
+
+    .animate-fade-left-smooth {
+        animation: fadeLeftSmooth 0.9s ease-out both;
+    }
+
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.92);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .animate-scale-in {
+        animation: scaleIn 0.5s ease-out both;
+    }
+}
+
+.tech-pill {
+    @apply px-3 py-1 rounded-full text-sm font-semibold bg-white/70 text-gray-800 shadow-sm;
+    opacity: 0;
+    transform: scale(0.96);
+    animation: scaleIn 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--delay, 0s);
+}
+
+.profession-list li {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: fadeUp 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--delay, 0s);
+}
+
+.tech-pill:hover {
+    @apply scale-105 shadow-md transition-transform duration-200;
+}
+
+.btn-primary {
+    @apply inline-flex items-center px-6 py-2 rounded-lg bg-blue-600 text-white font-medium shadow hover:bg-blue-700 transition;
+    transition-property: transform, box-shadow, background-color;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    @apply inline-flex items-center px-6 py-2 rounded-lg border border-blue-600 text-blue-600 font-medium hover:bg-blue-50 transition;
+}
+
+.social-links a {
+    @apply transition-colors;
+}
+
+.social-links a:hover .pi-github {
+    color: #333;
+}
+
+.social-links a:hover .pi-linkedin {
+    color: #0077b5;
+}
+
+.social-links a:hover .pi-envelope {
+    color: #d93025;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-fade-left-smooth,
+    .profession-list li,
+    .tech-pill {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
