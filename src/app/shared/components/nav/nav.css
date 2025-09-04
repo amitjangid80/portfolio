@@ -64,35 +64,38 @@
 
 /* --- Icon colors --- */
 .nav-home i {
-    color: #60a5fa;
+    @apply text-blue-600;
 }
+
 .nav-about i {
-    color: #38bdf8;
+    @apply text-cyan-600;
 }
+
 .nav-projects i {
-    color: #818cf8;
+    @apply text-indigo-600;
 }
+
 .nav-contact i {
-    color: #22d3ee;
+    @apply text-teal-600;
 }
 
 /* --- Title adopts icon color on hover/active --- */
 .nav-home:hover,
 .nav-home.nav-active {
-    color: #60a5fa;
+    @apply text-blue-600;
 }
 
 .nav-about:hover,
 .nav-about.nav-active {
-    color: #38bdf8;
+    @apply text-cyan-600;
 }
 
 .nav-projects:hover,
 .nav-projects.nav-active {
-    color: #818cf8;
+    @apply text-indigo-600;
 }
 
 .nav-contact:hover,
 .nav-contact.nav-active {
-    color: #22d3ee;
+    @apply text-teal-600;
 }
