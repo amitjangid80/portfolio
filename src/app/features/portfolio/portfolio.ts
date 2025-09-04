@@ -4,7 +4,6 @@ import { Nav } from '../../shared/components/nav/nav';
 
 @Component({
     selector: 'aj-portfolio',
-    styleUrl: './portfolio.css',
     templateUrl: './portfolio.html',
     imports: [
         RouterOutlet,

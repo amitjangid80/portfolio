@@ -9,9 +9,12 @@
 }
 
 .nav {
-    @apply flex gap-8 px-8 py-4 rounded-2xl border items-center justify-center;
-    @apply bg-white/40 backdrop-blur-lg border-white/30 shadow-lg shadow-violet-800/20;
+    @apply flex gap-8 px-8 py-3 rounded-2xl border items-center justify-center;
+    @apply bg-white/20 backdrop-blur-md border-white/30 shadow-lg;
+    /* Soft glowing edge for glassmorphism */
+    box-shadow: 0 4px 30px rgba(37, 99, 235, 0.25);
     animation: navFadeIn 1s ease-out 0.35s both;
+    backface-visibility: hidden;
 }
 
 @keyframes navFadeIn {
@@ -25,10 +28,13 @@
     }
 }
 
-/* Nav Item */
+/* --- Items --- */
 .nav-item {
-    @apply relative flex items-center gap-2 py-1 px-3 text-lg font-semibold text-gray-700 cursor-pointer transition-colors duration-300;
+    @apply relative flex items-center gap-2 px-3 text-base font-semibold text-gray-700 cursor-pointer transition-colors duration-300;
+    backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
 }
+
 .nav-item > * {
     position: relative;
     z-index: 10;
@@ -45,65 +51,48 @@
     border-radius: 9999px;
     transform-origin: left;
     transform: scaleX(0);
-    opacity: 0;
-    z-index: 5;
-    transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), opacity 200ms ease 80ms;
+    background-color: currentColor;
+    transition: transform 340ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Default icon colors */
-.nav-home i {
-    color: #2563eb;
-} /* blue-600 */
-.nav-about i {
-    color: #0ea5e9;
-} /* sky-500 */
-.nav-projects i {
-    color: #6366f1;
-} /* indigo-500 */
-.nav-contact i {
-    color: #06b6d4;
-} /* cyan-500 */
+.nav-item:hover::after,
+.nav-item:focus-visible::after,
+.nav-item:active::after,
+.nav-item.nav-active::after {
+    transform: scaleX(1);
+}
 
-/* Hover + Active → title + underline adopt icon color */
+/* --- Icon colors --- */
+.nav-home i {
+    color: #60a5fa;
+}
+.nav-about i {
+    color: #38bdf8;
+}
+.nav-projects i {
+    color: #818cf8;
+}
+.nav-contact i {
+    color: #22d3ee;
+}
+
+/* --- Title adopts icon color on hover/active --- */
 .nav-home:hover,
 .nav-home.nav-active {
-    color: #2563eb; /* match icon */
-}
-.nav-home:hover::after,
-.nav-home.nav-active::after {
-    background-color: #2563eb;
+    color: #60a5fa;
 }
 
 .nav-about:hover,
 .nav-about.nav-active {
-    color: #0ea5e9;
-}
-.nav-about:hover::after,
-.nav-about.nav-active::after {
-    background-color: #0ea5e9;
+    color: #38bdf8;
 }
 
 .nav-projects:hover,
 .nav-projects.nav-active {
-    color: #6366f1;
-}
-.nav-projects:hover::after,
-.nav-projects.nav-active::after {
-    background-color: #6366f1;
+    color: #818cf8;
 }
 
 .nav-contact:hover,
 .nav-contact.nav-active {
-    color: #06b6d4;
-}
-.nav-contact:hover::after,
-.nav-contact.nav-active::after {
-    background-color: #06b6d4;
-}
-
-/* Underline animation */
-.nav-item:hover::after,
-.nav-item.nav-active::after {
-    transform: scaleX(1);
-    opacity: 1;
+    color: #22d3ee;
 }
