@@ -18,7 +18,7 @@
 
         <div class="flex flex-wrap gap-3 justify-start">
             @for (skill of skills(); let i = $index; track skill) {
-                <span class="tech-pill" [style.--delay]="'0.6s'">{{ skill }}</span>
+                <span class="tech-pill transition-transform duration-300" [style.--delay]="'0.6s'">{{ skill }}</span>
             }
         </div>
 
@@ -50,6 +50,6 @@
 
     </div>
 
-    <img class="flex size-96 rounded-2xl drop-shadow-2xl border-4 border-blue-100 object-cover animate-fade-left-smooth hover:scale-[1.02] transition-transform duration-500"
+    <img class="flex size-96 rounded-2xl drop-shadow-2xl border-4 border-blue-100 object-cover animate-fade-left-smooth hover:scale-[1.1] transition-transform duration-500"
         src="assets/images/amit-photo.jpg" alt="Amit Jangid" />
 </div>
