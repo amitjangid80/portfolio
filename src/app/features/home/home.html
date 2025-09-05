@@ -1,8 +1,8 @@
-<div class="flex flex-row w-full gap-36 justify-center px-6 py-12 animate-fade-up">
+<div class="flex flex-row w-full gap-36 justify-center px-6 py-16 animate-fade-up">
     <div class="flex flex-col gap-10 max-w-xl text-left">
         <div>
-            <h1 class="text-5xl font-extrabold text-gray-800 tracking-tight">
-                Hello, I'm <span class="text-blue-600">Amit Jangid</span>
+            <h1 class="text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                Hello, I'm <span class="text-blue-700">Amit Jangid</span>
             </h1>
 
             <p class="mt-3 text-xl text-gray-600 font-medium">
@@ -12,13 +12,13 @@
 
         <ul class="profession-list list-disc pl-6 space-y-2 text-gray-700 leading-relaxed text-left mx-auto">
             @for (summary of professionSummary(); let i = $index; track summary) {
-                <li [style.--delay]="(i * 0.12) + 's'">{{ summary }}</li>
+            <li [style.--delay]="(i * 0.12) + 's'">{{ summary }}</li>
             }
         </ul>
 
         <div class="flex flex-wrap gap-3 justify-start">
             @for (skill of skills(); let i = $index; track skill) {
-                <span class="tech-pill" [style.--delay]="(i * 0.08) + 's'">{{ skill }}</span>
+            <span class="tech-pill" [style.--delay]="(i * 0.08) + 's'">{{ skill }}</span>
             }
         </div>
 
@@ -47,6 +47,6 @@
         </div>
     </div>
 
-    <img class="flex size-96 rounded-2xl drop-shadow-2xl border-4 border-white object-cover animate-fade-left-smooth"
+    <img class="flex size-96 rounded-2xl drop-shadow-2xl border-4 border-blue-100 object-cover animate-fade-left-smooth hover:scale-[1.02] transition-transform duration-500"
         src="assets/images/amit-photo.jpg" alt="Amit Jangid" />
 </div>
