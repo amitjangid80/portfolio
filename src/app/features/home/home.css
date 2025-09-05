@@ -10,6 +10,7 @@
             opacity: 0;
             transform: translateY(20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -25,6 +26,7 @@
             opacity: 0;
             transform: translateX(30px) scale(0.98);
         }
+
         to {
             opacity: 1;
             transform: translateX(0) scale(1);
@@ -38,34 +40,18 @@
     @keyframes scaleIn {
         from {
             opacity: 0;
-            transform: scale(0.92);
+            transform: scale(0.9);
         }
+
         to {
             opacity: 1;
             transform: scale(1);
         }
     }
-
-    .animate-scale-in {
-        animation: scaleIn 0.5s ease-out both;
-    }
 }
 
 .tech-pill {
-    /* @apply px-3 py-1 rounded-full text-sm font-semibold bg-blue-50 text-blue-700 shadow-sm border border-blue-200;
-    opacity: 0;
-    transform: scale(0.96);
-    animation: scaleIn 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: var(--delay, 0s); */
     @apply px-3 py-1 rounded-full text-sm font-semibold bg-blue-50 text-blue-700 shadow-sm border border-blue-200;
-    opacity: 0;
-    transform: scale(0.96);
-    animation: scaleIn 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: var(--delay, 0s); /* <-- picks up new delay from HTML */
-}
-
-.tech-pill:hover {
-    @apply scale-105 shadow-md bg-blue-100 transition-transform duration-200;
 }
 
 .profession-list li {
@@ -76,33 +62,43 @@
 }
 
 .btn-primary {
-    @apply gap-2 inline-flex items-center px-6 py-2 rounded-lg bg-blue-600 text-white font-medium shadow-lg hover:bg-blue-700 hover:shadow-xl transition;
-    transition-property: transform, box-shadow, background-color;
-    opacity: 0;
-    transform: scale(0.96);
-    animation: scaleIn 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: var(--delay, 1s);
-}
-
-.btn-primary:hover {
-    @apply cursor-pointer;
-    transform: translateY(-2px) scale(1.02);
+    @apply gap-2 inline-flex items-center px-6 py-2 rounded-lg bg-blue-600 text-white font-medium shadow-lg;
 }
 
 .btn-ghost {
-    @apply gap-2 inline-flex items-center px-6 py-2 rounded-lg border border-blue-600 text-blue-600 font-medium hover:bg-blue-50 transition;
-    opacity: 0;
-    transform: scale(0.96);
-    animation: scaleIn 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: var(--delay, 1.15s);
+    @apply gap-2 inline-flex items-center px-6 py-2 rounded-lg border border-blue-600 text-blue-600 font-medium;
 }
 
 .social-links a {
     @apply transition-colors;
+}
+
+.tech-pill,
+.btn-primary,
+.btn-ghost,
+.social-links a,
+img.animate-fade-left-smooth {
     opacity: 0;
-    transform: scale(0.96);
-    animation: scaleIn 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: var(--delay, 1.2s);
+    transform: scale(0.9);
+    animation: scaleIn 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--delay, 0s);
+
+    will-change: transform, filter;
+    transition: transform 360ms cubic-bezier(0.4, 0, 0.2, 1),
+        filter 360ms cubic-bezier(0.4, 0, 0.2, 1), color 240ms ease;
+}
+
+.tech-pill:hover,
+.btn-primary:hover,
+.btn-ghost:hover,
+.social-links a:hover,
+img.animate-fade-left-smooth:hover {
+    transform: scale(1.12) !important;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.22));
+}
+
+.social-links a .pi {
+    transition: color 240ms ease;
 }
 
 .social-links a:hover .pi-github {
@@ -114,7 +110,7 @@
 }
 
 .social-links a:hover .pi-envelope {
-    color: #2563eb;
+    color: #ea4335;
 }
 
 @media (prefers-reduced-motion: reduce) {

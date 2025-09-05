@@ -10,43 +10,44 @@
             </p>
         </div>
 
-        <ul class="profession-list list-disc pl-6 space-y-2 text-gray-700 leading-relaxed text-left mx-auto">
+        <ul class="profession-list list-disc pl-6 space-y-2 text-gray-700 leading-relaxed text-justify mx-auto">
             @for (summary of professionSummary(); let i = $index; track summary) {
-            <li [style.--delay]="(i * 0.12) + 's'">{{ summary }}</li>
+                <li [style.--delay]="(i * 0.12) + 's'">{{ summary }}</li>
             }
         </ul>
 
         <div class="flex flex-wrap gap-3 justify-start">
             @for (skill of skills(); let i = $index; track skill) {
-            <span class="tech-pill" [style.--delay]="(0.8 + (i * 0.08)) + 's'">{{ skill }}</span>
+                <span class="tech-pill" [style.--delay]="'0.6s'">{{ skill }}</span>
             }
         </div>
 
         <div class="flex gap-4">
-            <button routerLink="/projects" class="btn-primary" [style.--delay]="'2s'">
+            <button routerLink="/projects" class="btn-primary" [style.--delay]="'1.0s'">
                 <i class="pi pi-briefcase"></i>
                 <span>View My Work</span>
             </button>
 
-            <a href="assets/docs/Amit-Jangid-Resume.pdf" download class="btn-ghost" [style.--delay]="'2s'">
+            <a href="assets/docs/Amit-Jangid-Resume.pdf" download class="btn-ghost" [style.--delay]="'1.0s'">
                 <i class="pi pi-download"></i>
                 <span>Download Resume</span>
             </a>
         </div>
 
         <div class="flex gap-6 text-gray-600 social-links">
-            <a href="https://github.com/amit" target="_blank" [style.--delay]="'2.15s'">
+            <a href="https://github.com/amit" target="_blank" [style.--delay]="'1.0s'">
                 <i class="pi pi-github text-2xl"></i>
             </a>
 
-            <a href="https://linkedin.com/in/amit-jangid" target="_blank" [style.--delay]="'2.3s'">
+            <a href="https://linkedin.com/in/amit-jangid" target="_blank" [style.--delay]="'1.0s'">
                 <i class="pi pi-linkedin text-2xl"></i>
             </a>
 
-            <a href="mailto:jangidamit800@gmail.com" [style.--delay]="'2.45s'">
+            <a href="mailto:jangidamit800@gmail.com" [style.--delay]="'1.0s'">
                 <i class="pi pi-envelope text-2xl"></i>
             </a>
         </div>
+
     </div>
 
     <img class="flex size-96 rounded-2xl drop-shadow-2xl border-4 border-blue-100 object-cover animate-fade-left-smooth hover:scale-[1.02] transition-transform duration-500"
