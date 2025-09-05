@@ -1,16 +1,10 @@
 <div class="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-blue-100 via-blue-200 to-blue-400">
     <div class="absolute -top-32 -left-32 w-96 h-96 bg-blue-300/30 rounded-full blur-3xl"></div>
     <div class="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-blue-500/30 rounded-full blur-3xl"></div>
-
     <div class="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-blue-900/10 to-transparent z-0"></div>
 
     <div class="relative z-10 flex size-full flex-col items-center text-gray-800">
-        <header class="w-full max-w-7xl px-6 py-6">
-            <aj-nav></aj-nav>
-        </header>
-
-        <main class="flex flex-1 size-full px-6 py-6">
-            <router-outlet></router-outlet>
-        </main>
+        <aj-nav></aj-nav>
+        <router-outlet></router-outlet>
     </div>
 </div>

@@ -13,7 +13,6 @@
     @apply bg-white/20 backdrop-blur-md border-white/30 shadow-lg;
     box-shadow: 0 4px 30px rgba(37, 99, 235, 0.25);
     animation: navFadeIn 1s ease-out 0.2s both;
-    backface-visibility: hidden;
 }
 
 @keyframes navFadeIn {
@@ -30,8 +29,8 @@
 
 .nav-item {
     @apply relative flex items-center gap-2 px-3 text-base font-semibold text-gray-700 cursor-pointer transition-colors duration-300;
-    backface-visibility: hidden;
     -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
 .nav-item > * {
