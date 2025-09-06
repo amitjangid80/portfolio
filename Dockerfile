@@ -28,8 +28,8 @@ COPY nginx/docker-defaults.sh /
 # Copy the built Angular app from the previous stage to the Nginx html directory
 COPY --from=build-step /app/dist/portfolio-ui /usr/share/nginx/html/portfolio
 
-# Expose port 8383 for the application
-EXPOSE 8383
+# Expose port 8080 for the application
+EXPOSE 8080
 
 # Start Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]

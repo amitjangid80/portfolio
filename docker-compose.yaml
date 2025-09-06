@@ -9,11 +9,11 @@ services:
         restart: unless-stopped
 
         ports:
-            - '4200:8383'
+            - '4200:8080'
         networks:
-            - arangonet
+            - dev_net
 
 networks:
-    arangonet:
+    dev_net:
         name: development_network
         external: true
