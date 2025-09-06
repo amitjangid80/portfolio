@@ -17,10 +17,10 @@ jobs:
               run: docker build -t portfolio-ui .
 
             - name: List files in output directory
-              run: ls -R ./app/dist
+              run: ls -R /app/dist
 
             - name: Deploy Portfolio UI
               uses: peaceiris/actions-gh-pages@v3
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: ./app/portfolio-ui/browser/
+                publish_dir: /app/portfolio-ui/browser/
