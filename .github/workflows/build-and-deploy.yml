@@ -1,0 +1,26 @@
+name: Portfolio
+
+on:
+    push:
+        branches: ['main']
+    pull_request:
+        branches: ['main']
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Building Docker image
+              run: docker build -t portfolio-ui --output type=local,dest-./out .
+
+            - name: List files in output directory
+              run: ls -R ./out/app/dist
+
+            - name: Deploy Portfolio UI
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: ./out/portfolio-ui/browser/
