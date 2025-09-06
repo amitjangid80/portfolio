@@ -14,13 +14,18 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Building Docker image
-              run: docker build -t portfolio-ui .
+              run: |
+                  docker build \
+                      --target build-step \
+                      --build-arg NGINX_IMAGE=public.ecr.aws/docker/library/nginx:alpine \
+                      --build-arg NODE_IMAGE=public.ecr.aws/docker/library/node:22.16.0-alpine \
+                      --output type=local,dest=./out .
 
             - name: List files in output directory
-              run: ls -R /app/dist
+              run: ls -R ./out/app/dist
 
             - name: Deploy Portfolio UI
               uses: peaceiris/actions-gh-pages@v3
               with:
-                github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: /app/portfolio-ui/browser/
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./out/app/dist/portfolio-ui/browser
