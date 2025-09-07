@@ -3,7 +3,5 @@ export interface WorkExperience {
     jobTitle: string;
     location: string;
     startDate: string;
-    isCurrent: boolean;
     companyName: string;
-    responsibilities: string[];
 }

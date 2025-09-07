@@ -1,4 +1,3 @@
-import { inject } from '@vercel/analytics';
 import { RouterOutlet } from '@angular/router';
 import { TextConstants } from '../../shared/constants/text';
 import { signal, Component, WritableSignal } from '@angular/core';
@@ -10,8 +9,4 @@ import { signal, Component, WritableSignal } from '@angular/core';
 })
 export class App {
     protected readonly title: WritableSignal<string> = signal(TextConstants.appTitle);
-
-    constructor () {
-        inject();
-    }
 }

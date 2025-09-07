@@ -10,7 +10,7 @@
         -moz-text-rendering: optimizeLegibility;
         -webkit-text-rendering: optimizeLegibility;
         -webkit-tap-highlight-color: transparent;
-        font-family: "Share Tech Mono", monospace;
+        font-family: 'Share Tech Mono', monospace;
 
         /* Remove the focus ring */
         &:focus {
@@ -114,6 +114,18 @@
         }
     }
 
+    @keyframes navFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-15px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     /* Keyframes */
     @keyframes fade-in {
         from {
@@ -143,6 +155,47 @@
         to {
             transform: translateX(0);
             opacity: 1;
+        }
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-up {
+        animation: fadeUp 0.7s ease-out both;
+    }
+
+    @keyframes fadeLeftSmooth {
+        from {
+            opacity: 0;
+            transform: translateX(30px) scale(0.98);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+    }
+
+    .animate-fade-left-smooth {
+        animation: fadeLeftSmooth 0.9s ease-out both;
+    }
+
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
         }
     }
 

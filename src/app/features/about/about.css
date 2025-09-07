@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+:host {
+    @apply flex w-full;
+}
+
+.about-title {
+    @apply text-3xl font-semibold text-blue-600 tracking-wide;
+}
