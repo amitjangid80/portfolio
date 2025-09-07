@@ -1,16 +1,15 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { WorkExpModel } from './common/work-exp.model';
 import { EducationModel } from './common/education.model';
-import { WorkExperience } from './common/work-exp.model';
+import { signal, Component, WritableSignal } from '@angular/core';
 
 @Component({
     selector: 'aj-about',
     styleUrl: './about.css',
-    templateUrl: './about.html',
-    imports: []
+    templateUrl: './about.html'
 })
 export class About {
     protected readonly education: WritableSignal<EducationModel[]> = signal([]);
-    protected readonly workExperience: WritableSignal<WorkExperience[]> = signal([]);
+    protected readonly workExperience: WritableSignal<WorkExpModel[]> = signal([]);
 
     constructor () {
         this.loadEducation();
@@ -76,7 +75,7 @@ export class About {
                     location: 'Navi Mumbai, Maharashtra, India',
                     startDate: '03 August 2015',
                     companyName: 'ConnectMe Informatics Pvt. Ltd.',
-                },
+                }
             ]
         );
     }

@@ -12,3 +12,9 @@
     content: '';
     @apply block w-16 h-1 mt-2 bg-blue-600 rounded-full;
 }
+
+.education-list li {
+    transform: translateY(6px);
+    animation: fadeUp 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--delay, 0s);
+}
