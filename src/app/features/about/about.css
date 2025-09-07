@@ -5,5 +5,10 @@
 }
 
 .about-title {
-    @apply text-3xl font-semibold text-blue-600 tracking-wide;
+    @apply text-3xl font-semibold text-blue-600 tracking-wide relative;
+}
+
+.about-title::after {
+    content: '';
+    @apply block w-16 h-1 mt-2 bg-blue-600 rounded-full;
 }
