@@ -3,7 +3,6 @@
 
 @layer base {
     * {
-        /* Text rendering */
         text-rendering: optimizeLegibility;
         -o-text-rendering: optimizeLegibility;
         -ms-text-rendering: optimizeLegibility;
@@ -12,7 +11,6 @@
         -webkit-tap-highlight-color: transparent;
         font-family: 'Share Tech Mono', monospace;
 
-        /* Remove the focus ring */
         &:focus {
             outline: none !important;
         }
@@ -22,7 +20,6 @@
         color: var(--color-black) !important;
     }
 
-    /* HTML and Body default styles */
     html,
     body {
         width: 100%;
@@ -34,10 +31,10 @@
         -moz-osx-font-smoothing: auto;
     }
 
-    /* Font size */
     html {
         margin: 0;
         font-size: 16px;
+        scroll-behavior: smooth;
     }
 
     body {
@@ -45,38 +42,32 @@
         font-size: 0.875rem;
     }
 
-    /* Stylistic alternates for Inter */
     body {
         margin: 0;
         font-feature-settings: 'salt';
     }
 
-    /* Better spacing and border for horizontal rule */
     hr {
         margin: 32px 0;
         border-bottom-width: 1px;
     }
 
-    /* Make images and videos to take up all the available space */
     img {
         width: 100%;
         vertical-align: top;
     }
 
-    /* Fix: Disabled placeholder color is too faded on Safari */
     input[disabled] {
         opacity: 1;
         -webkit-text-fill-color: currentColor;
     }
 
-    /* Set the background and foreground colors */
     body,
     .dark,
     .light {
         background-color: var(--color-white) !important;
     }
 
-    /* Style scroll bars on platforms other than MacOS and iOS */
     @media only screen and (min-width: 960px) {
         body:not(.os-mac) {
             ::-webkit-scrollbar {
@@ -126,7 +117,6 @@
         }
     }
 
-    /* Keyframes */
     @keyframes fade-in {
         from {
             opacity: 0;
@@ -207,5 +197,43 @@
 
     ::view-transition-old(count) {
         animation-name: -ua-view-transition-fade-out, fade-in;
+    }
+
+    .input-wrapper {
+        @apply w-full;
+    }
+
+    .input-field {
+        @apply flex relative flex-col border-b border-gray-400;
+    }
+
+    .input-field label {
+        @apply left-0 top-1/2 text-base absolute pointer-events-none;
+        transition: 0.15s ease;
+        transform: translateY(-50%);
+    }
+
+    .input-field input,
+    .input-field textarea {
+        @apply h-10 w-full border-0 outline-0 text-base bg-transparent;
+    }
+
+    .input-field input:focus,
+    .input-field input:valid,
+    .input-field textarea:focus,
+    .input-field textarea:valid {
+        @apply border-b border-blue-600;
+    }
+
+    .input-field input:focus ~ label,
+    .input-field input:valid ~ label,
+    .input-field textarea:focus ~ label,
+    .input-field textarea:valid ~ label {
+        @apply top-2.5 text-sm text-blue-600;
+        transform: translateY(-120%);
+    }
+
+    .error-message {
+        @apply mt-1 text-red-600 min-h-4.5 text-sm text-start;
     }
 }

@@ -1,1 +1,21 @@
-<p>contact works!</p>
+<div class="flex w-full justify-center px-6 py-16">
+    <form class="contact-form" (submit)="onSubmit()">
+        <h2 class="text-2xl font-semibold text-center text-blue-600 tracking-wide">
+            Contact Me
+        </h2>
+
+        <aj-input id="name" name="name" label="Name" inputType="text" class="w-full">
+        </aj-input>
+
+        <aj-input id="email" name="email" label="Email" inputType="email" class="w-full">
+        </aj-input>
+
+        <aj-input id="subject" name="subject" label="Subject" inputType="text" class="w-full">
+        </aj-input>
+
+        <aj-textarea id="message" name="message" label="Message" class="w-full">
+        </aj-textarea>
+
+        <button class="btn-primary">Submit</button>
+    </form>
+</div>

@@ -1,5 +1,5 @@
-import { Component, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { signal, Component, WritableSignal } from '@angular/core';
 
 @Component({
     selector: 'aj-home',
