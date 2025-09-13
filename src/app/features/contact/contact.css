@@ -21,3 +21,12 @@
     @apply bg-blue-700 cursor-pointer drop-shadow-sm;
     transform: scale(1.01) !important;
 }
+
+.contact-title {
+    @apply text-2xl font-semibold text-center text-blue-600 tracking-wide;
+}
+
+.contact-title::after {
+    content: '';
+    @apply block w-16 h-1 mt-2 bg-blue-600 rounded-full;
+}

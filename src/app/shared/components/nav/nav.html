@@ -1,7 +1,11 @@
 <div class="nav-container">
-    <nav class="nav" role="navigation" aria-label="Primary">
+    <div class="flex py-6 w-full justify-end sm:hidden">
+        <i (click)="onNavClick()" class="pi pi-bars text-base text-blue-800"></i>
+    </div>
+
+    <nav #nav class="nav" role="navigation" aria-label="Primary" [ngClass]="{'flex': showNavBar()}">
         @for (nav of navList(); track nav) {
-            <div class="nav-item {{ nav.cssClass }}" [routerLink]="nav.route" routerLinkActive="nav-active">
+            <div class="nav-item {{ nav.cssClass }}" [routerLink]="nav.route" routerLinkActive="nav-active" (click)="onNavClick()">
                 <i class="pi {{ nav.icon }} text-xl"></i>
                 <span>{{ nav.title }}</span>
             </div>

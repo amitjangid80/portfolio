@@ -3,18 +3,10 @@
 @layer utilities {
     @keyframes gradientShift {
         0% {
-            background: radial-gradient(
-                125% 125% at 50% 90%,
-                #ffffff 30%,
-                /* bright center */ #60a5fa 100% /* lighter blue outer */
-            );
+            background: radial-gradient(125% 125% at 50% 90%, #ffffff 30%, #60a5fa 100%);
         }
         50% {
-            background: radial-gradient(
-                125% 125% at 50% 80%,
-                #f0f9ff 30%,
-                /* sky blue center */ #3b82f6 100% /* blue-500 outer */
-            );
+            background: radial-gradient(125% 125% at 50% 80%, #f0f9ff 30%, #3b82f6);
         }
         100% {
             background: radial-gradient(125% 125% at 50% 90%, #ffffff 30%, #60a5fa 100%);

@@ -5,11 +5,11 @@
 }
 
 .nav-container {
-    @apply py-8 flex w-full items-center justify-center;
+    @apply px-6 py-2 flex w-full gap-4 flex-col items-center justify-center sm:py-8 sm:flex-row;
 }
 
 .nav {
-    @apply flex gap-8 px-8 py-3 rounded-2xl border items-center justify-center;
+    @apply hidden px-8 py-3 gap-5 mx-6 w-full border flex-col rounded-2xl items-center justify-center sm:flex sm:gap-8 sm:w-auto sm:flex-row;
     @apply bg-white/20 backdrop-blur-md border-white/30 shadow-lg;
     box-shadow: 0 4px 30px rgba(37, 99, 235, 0.25);
     animation: navFadeIn 1s ease-out 0.2s both;
