@@ -1,1 +1,24 @@
-<p>projects works!</p>
+<div class="flex px-6 py-6 w-full gap-12 flex-col justify-center sm:py-8 md:py-16">
+    <h2 class="text-4xl font-bold text-blue-700 text-center">
+        <span class="relative inline-block">
+            <span>My Projects</span>
+            <span class="block w-16 h-1 mt-2 bg-blue-600 rounded-full"></span>
+        </span>
+    </h2>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+        @for (project of projectsList(); let i = $index; track project) {
+        <div class="project" [style.--delay]="(i * 0.12) + 's'">
+            <h3 class="project-title">
+                {{ project.title }}
+            </h3>
+
+            <p class="text-gray-700">{{ project.description }}</p>
+
+            <a href="#" class="text-blue-600 font-medium hover:text-blue-800 transition">
+                View Project →
+            </a>
+        </div>
+        }
+    </div>
+</div>
