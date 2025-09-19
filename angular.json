@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "portfolio-ui": {
+        "portfolio": {
             "projectType": "application",
             "schematics": {},
             "root": "",
@@ -54,10 +54,10 @@
                     "builder": "@angular/build:dev-server",
                     "configurations": {
                         "production": {
-                            "buildTarget": "portfolio-ui:build:production"
+                            "buildTarget": "portfolio:build:production"
                         },
                         "development": {
-                            "buildTarget": "portfolio-ui:build:development"
+                            "buildTarget": "portfolio:build:development"
                         }
                     },
                     "defaultConfiguration": "development"

@@ -12,8 +12,8 @@ fi
 echo "[⚡] Running yarn"
 yarn install
 
-# echo "[⚡] Setting sdks"
-# yarn dlx @yarnpkg/sdks
+echo "[⚡] Setting sdks"
+yarn dlx @yarnpkg/sdks
 
 echo "[⚡] Building project to verify.."
 yarn build:prod
