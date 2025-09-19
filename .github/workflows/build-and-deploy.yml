@@ -1,7 +1,7 @@
 name: Portfolio
 
 permissions:
-  contents: write
+    contents: write
 
 on:
     push:
@@ -21,9 +21,6 @@ jobs:
                   docker build \
                       --target build-step \
                       --output type=local,dest=./out .
-
-            - name: List files in output directory
-              run: ls -R ./out/app/dist
 
             - name: Deploy Portfolio UI
               uses: peaceiris/actions-gh-pages@v3
