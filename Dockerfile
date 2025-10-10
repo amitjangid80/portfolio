@@ -1,6 +1,6 @@
 # Define the base images for Node.js and Nginx
 ARG NGINX_IMAGE="public.ecr.aws/docker/library/nginx:alpine"
-ARG NODE_IMAGE="public.ecr.aws/docker/library/node:22.16.0-alpine"
+ARG NODE_IMAGE="public.ecr.aws/docker/library/node:22.20.0-alpine"
 
 # Stage 1: Build the Angular application
 FROM ${NODE_IMAGE} AS build-step
