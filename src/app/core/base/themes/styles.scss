@@ -240,10 +240,19 @@
         @apply border-b border-blue-600;
     }
 
-    .input-field input:focus ~ label,
+    /* .input-field input:focus ~ label,
     .input-field input:valid ~ label,
     .input-field textarea:focus ~ label,
     .input-field textarea:valid ~ label {
+        @apply top-2.5 text-sm text-blue-600;
+        transform: translateY(-120%);
+    } */
+
+    /* Floating label trigger — focus OR not empty (not placeholder-shown) */
+    .input-field input:focus ~ label,
+    .input-field input:not(:placeholder-shown) ~ label,
+    .input-field textarea:focus ~ label,
+    .input-field textarea:not(:placeholder-shown) ~ label {
         @apply top-2.5 text-sm text-blue-600;
         transform: translateY(-120%);
     }
