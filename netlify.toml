@@ -1,4 +1,4 @@
 [build]
 command = "yarn build:prod"
-publish = "out"
+publish = "dist/portfolio/browser"
 base = "/portfolio"
