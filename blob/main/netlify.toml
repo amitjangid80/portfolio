@@ -3,6 +3,6 @@ command = "yarn build:prod"
 publish = "dist/portfolio/browser"
 
 [[redirects]]
-from = "/*"
-to = "portfolio/index.html"
+from = "/portfolio"
+to = "/portfolio/index.html"
 status = 200
