@@ -5,9 +5,9 @@ permissions:
 
 on:
     push:
-        branches: ['main']
+        branches: ["main"]
     pull_request:
-        branches: ['main']
+        branches: ["main"]
 
 jobs:
     build:
@@ -22,8 +22,12 @@ jobs:
                       --target build-step \
                       --output type=local,dest=./out .
 
+            - name: Create SPA 404
+              run: cp ./out/app/dist/portfolio/browser/index.html ./out/app/dist/portfolio/browser/404.html
+
             - name: Deploy Portfolio UI
               uses: peaceiris/actions-gh-pages@v3
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_dir: ./out/app/dist/portfolio/browser
+                  cname: amit-jangid.in
