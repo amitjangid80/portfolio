@@ -1,0 +1,23 @@
+[build]
+command = "yarn build:prod"
+publish = "dist/portfolio/browser"
+
+## Serve the SPA at /portfolio while assets live at site root
+## 1) Static files requested under /portfolio/*.<ext> -> map to root /:splat
+[[redirects]]
+from = "/portfolio/*.*"
+to = "/:splat"
+status = 200
+
+## 2) SPA client-side routes under /portfolio/* -> serve index.html
+[[redirects]]
+from = "/portfolio/*"
+to = "/index.html"
+status = 200
+
+## 3) /portfolio (no trailing slash) -> index.html
+[[redirects]]
+from = "/portfolio"
+to = "/index.html"
+status = 200
+

@@ -1,8 +1,0 @@
-[build]
-command = "yarn build:prod"
-publish = "dist/portfolio/browser"
-
-[[redirects]]
-from = "/portfolio"
-to = "/portfolio/index.html"
-status = 200
