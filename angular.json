@@ -14,7 +14,6 @@
                     "builder": "@angular/build:application",
                     "options": {
                         "browser": "src/main.ts",
-                        "baseHref": "/portfolio/",
                         "tsConfig": "tsconfig.app.json",
                         "assets": [
                             {

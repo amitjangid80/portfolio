@@ -15,5 +15,11 @@ yarn install
 echo "[⚡] Setting sdks"
 yarn dlx @yarnpkg/sdks
 
+echo "[⚡] Extracting required artifacts.."
+cd .yarn/cache
+
+fVar=$(find * -type f -name '@angular-cli-npm-*.*\.zip')
+unzip -o ${fVar} "node_modules/@angular/cli/lib/*/*" -d "./../../"
+
 echo "[⚡] Building project to verify.."
 yarn build:prod

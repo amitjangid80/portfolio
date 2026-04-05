@@ -25,8 +25,9 @@ COPY nginx/docker-nginx-default.conf /etc/nginx/conf.d/default.conf
 # Copy any additional Nginx setup scripts
 COPY nginx/docker-defaults.sh /
 
-# Copy the built Angular app from the previous stage to the Nginx html directory
-COPY --from=build-step /app/dist/portfolio/browser/ /usr/share/nginx/html/portfolio
+# Copy the built Angular app to the Nginx web root
+# We now serve the app from root (no context path)
+COPY --from=build-step /app/dist/portfolio/browser/ /usr/share/nginx/html/
 
 # Expose port 8484 for the application
 EXPOSE 8484
