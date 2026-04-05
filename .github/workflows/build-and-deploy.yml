@@ -24,6 +24,8 @@ jobs:
 
             - name: Create SPA 404
               run: cp ./out/app/dist/portfolio/browser/index.html ./out/app/dist/portfolio/browser/404.html
+            - name: Disable Jekyll
+              run: touch ./out/app/dist/portfolio/browser/.nojekyll
 
             - name: Deploy Portfolio UI
               uses: peaceiris/actions-gh-pages@v3
