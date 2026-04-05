@@ -1,23 +1,22 @@
 [build]
-command = "yarn build:prod"
+# Build, then move all outputs into a `portfolio/` subfolder so URLs
+# like /portfolio/main-*.js resolve to actual files.
+command = "yarn build:prod && mkdir -p dist/portfolio/browser/portfolio && find dist/portfolio/browser -mindepth 1 -maxdepth 1 ! -name portfolio -exec mv -t dist/portfolio/browser/portfolio {} +"
 publish = "dist/portfolio/browser"
 
-## Serve the SPA at /portfolio while assets live at site root
-## 1) Static files requested under /portfolio/*.<ext> -> map to root /:splat
-[[redirects]]
-from = "/portfolio/*.*"
-to = "/:splat"
-status = 200
-
-## 2) SPA client-side routes under /portfolio/* -> serve index.html
+## SPA served from /portfolio
 [[redirects]]
 from = "/portfolio/*"
-to = "/index.html"
+to = "/portfolio/index.html"
 status = 200
 
-## 3) /portfolio (no trailing slash) -> index.html
 [[redirects]]
 from = "/portfolio"
-to = "/index.html"
+to = "/portfolio/index.html"
 status = 200
 
+## Optional: send bare root to /portfolio/
+[[redirects]]
+from = "/"
+to = "/portfolio/"
+status = 301
