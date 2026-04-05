@@ -1,7 +1,6 @@
 [build]
 command = "yarn build:prod"
 publish = "dist/portfolio/browser"
-base = "/portfolio"
 
 [[redirects]]
 from = "/*"
