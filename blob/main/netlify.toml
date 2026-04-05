@@ -2,3 +2,8 @@
 command = "yarn build:prod"
 publish = "dist/portfolio/browser"
 base = "/portfolio"
+
+[[redirects]]
+from = "/*"
+to = "portfolio/index.html"
+status = 200
