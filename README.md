@@ -1,59 +1,120 @@
-# PortfolioUi
+# Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+Personal portfolio website for Amit Jangid, built with Angular and Tailwind CSS.
 
-## Development server
+The app includes the main portfolio sections:
 
-To start a local development server, run:
+- Home
+- About
+- Projects
+- Contact
 
-```bash
-ng serve
-```
+## Tech Stack
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Angular 21
+- TypeScript 6
+- Tailwind CSS 4
+- PrimeIcons
+- Yarn 4
+- Nginx Docker image for containerized serving
 
-## Code scaffolding
+## Getting Started
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Install dependencies:
 
 ```bash
-ng build
+yarn install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Start the local development server:
 
 ```bash
-ng test
+yarn start
 ```
 
-## Running end-to-end tests
+Open `http://localhost:4200/` in your browser. The app reloads automatically when source files change.
 
-For end-to-end (e2e) testing, run:
+## Available Scripts
 
 ```bash
-ng e2e
+yarn start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Runs the Angular development server.
 
-## Additional Resources
+```bash
+yarn build
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Builds the Angular app using the default production configuration.
+
+```bash
+yarn build:prod
+```
+
+Builds an optimized production bundle with AOT and hashed output files.
+
+```bash
+yarn watch
+```
+
+Builds continuously in development mode.
+
+```bash
+yarn test
+```
+
+Runs unit tests with Karma.
+
+```bash
+yarn lint
+```
+
+Runs the configured lint command.
+
+## Project Structure
+
+```text
+src/app/
+|-- core/                 # App configuration and theme entry points
+|-- features/             # Portfolio pages and feature routes
+|   |-- about/
+|   |-- contact/
+|   |-- home/
+|   |-- portfolio/
+|   `-- projects/
+`-- shared/               # Shared components, constants, and models
+
+public/
+`-- assets/images/        # Static image assets
+```
+
+## Deployment
+
+### Netlify
+
+The repository includes `netlify.toml`. Netlify runs:
+
+```bash
+yarn build:prod
+```
+
+The production output is published from `dist/portfolio/browser` and served under `/portfolio`.
+
+### Docker
+
+Build and run the container with Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+The container serves the built app through Nginx on host port `4200`.
+
+## Domain
+
+The custom domain is configured in `CNAME`:
+
+```text
+portfolio.amit-jangid.in
+```
