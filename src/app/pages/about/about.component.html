@@ -1,0 +1,102 @@
+<div class="relative">
+  <div class="max-w-300 mx-auto px-4 md:px-10 py-10 md:py-20 flex flex-col gap-8 relative z-10">
+    <!-- Header -->
+    <header appReveal class="mb-4 flex flex-col gap-4">
+      <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 w-fit">
+        <app-icon name="terminal" [size]="18" extraClass="text-primary" />
+        <span class="font-label text-sm text-primary uppercase tracking-widest">{{ about.eyebrow }}</span>
+      </div>
+      <h1 class="font-display text-4xl md:text-6xl font-bold text-on-surface tracking-tight drop-shadow-[0_0_12px_rgba(218,226,253,0.3)]">
+        {{ about.heading }} <br />
+        <span class="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary drop-shadow-[0_0_15px_rgba(173,198,255,0.5)]">{{ about.headingAccent }}</span>
+      </h1>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 auto-rows-min relative">
+      <!-- System Diagnostics (bio) -->
+      <section
+        appReveal
+        [appRevealDelay]="1"
+        class="holo-glass-panel reveal-border-hover md:col-span-8 p-5 md:p-8 flex flex-col gap-6"
+      >
+        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+          <h2 class="font-display text-xl text-on-surface font-semibold flex items-center gap-3 drop-shadow-[0_0_8px_rgba(218,226,253,0.5)]">
+            <app-icon name="memory" [size]="22" extraClass="text-primary drop-shadow-[0_0_8px_rgba(173,198,255,0.8)]" />
+            System Diagnostics
+          </h2>
+          <span class="font-label text-xs text-secondary bg-secondary/20 px-2 py-1 rounded border border-secondary/50 shadow-[0_0_10px_rgba(78,222,163,0.3)] backdrop-blur-sm">STATUS: ONLINE</span>
+        </div>
+        <div class="font-body text-on-surface-variant text-lg leading-relaxed space-y-4 relative z-20">
+          @for (p of about.paragraphs; track p) {
+            <p>{{ p }}</p>
+          }
+        </div>
+        <div class="flex flex-wrap gap-3 mt-auto pt-4 relative z-20">
+          @for (t of about.tags; track t) {
+            <span class="font-label text-xs uppercase tracking-wider text-primary border border-primary/50 bg-primary/10 px-4 py-2 rounded-full shadow-[0_0_15px_rgba(173,198,255,0.2)] backdrop-blur-md">{{ t }}</span>
+          }
+        </div>
+      </section>
+
+      <!-- Telemetry (stats) -->
+      <div class="md:col-span-4 flex flex-col gap-8">
+        @for (s of aboutStats; track s.label; let i = $index) {
+          <div appReveal [appRevealDelay]="i + 1" class="flex-1 holo-glass-panel reveal-border-hover p-6 flex flex-col justify-center items-center text-center group">
+            <app-icon [name]="s.icon" [size]="24" extraClass="mb-2 {{ accentText(s.accent) }} drop-shadow-[0_0_8px_rgba(173,198,255,0.6)]" />
+            <span class="font-label text-xs text-on-surface-variant tracking-widest mb-2 uppercase drop-shadow-[0_0_5px_rgba(193,198,215,0.5)]">{{ s.label }}</span>
+            <span class="font-display text-5xl font-bold group-hover:scale-110 transition-transform duration-500" [class]="accentText(s.accent)">{{ s.value }}</span>
+          </div>
+        }
+      </div>
+
+      <!-- Execution Log (timeline) -->
+      <section appReveal [appRevealDelay]="2" class="holo-glass-panel reveal-border-hover md:col-span-12 p-5 md:p-8 lg:p-12">
+        <div class="flex items-center justify-between border-b border-white/10 pb-6 mb-10">
+          <h2 class="font-display text-3xl text-on-surface font-semibold flex items-center gap-4 drop-shadow-[0_0_12px_rgba(218,226,253,0.5)]">
+            <app-icon name="terminal" [size]="30" extraClass="text-primary drop-shadow-[0_0_12px_rgba(173,198,255,0.8)]" />
+            Execution Log
+          </h2>
+        </div>
+        <div class="relative md:ml-6 space-y-16">
+          <!-- Line starts at the first dot's vertical center (top-4.5 = 18px,
+               matching top-2 + half the dot's height below) instead of the
+               container's top edge, so no stray stub shows above the first
+               indicator with nothing above it to connect to. -->
+          <div class="absolute left-0 top-4.5 bottom-0 w-0.5 bg-white/10 pointer-events-none"></div>
+          @for (item of experience; track item.role + item.duration) {
+            <div class="relative pl-6 md:pl-10 group z-20">
+              <div class="absolute -left-2 top-2 flex items-center justify-center z-30">
+                <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center" [class]="accentBorder(item.accent) + ' ' + accentGlow(item.accent)">
+                  <div class="w-1.5 h-1.5 rounded-full" [class]="accentFill(item.accent)"></div>
+                </div>
+              </div>
+              <div class="flex flex-col md:flex-row md:items-center justify-between mb-3 gap-2">
+                <h3 class="font-display text-2xl text-on-surface font-bold drop-shadow-[0_0_8px_rgba(218,226,253,0.5)]">{{ item.role }}</h3>
+                <span class="font-label text-sm tracking-widest px-4 py-1.5 rounded border backdrop-blur-md whitespace-nowrap" [class]="accentBadge(item.accent)">{{ item.duration | uppercase }}</span>
+              </div>
+              <h4 class="font-body text-lg mb-4 font-medium flex items-center gap-2 drop-shadow-[0_0_5px_rgba(78,222,163,0.5)]" [class]="accentText(item.accent)">
+                <app-icon name="business" [size]="16" />
+                {{ item.org }}
+              </h4>
+              <p class="font-body text-on-surface-variant text-lg leading-relaxed">{{ item.summary }}</p>
+            </div>
+          }
+        </div>
+      </section>
+
+      <!-- Infrastructure Visualized -->
+      <section appReveal [appRevealDelay]="3" class="holo-glass-panel reveal-border-hover md:col-span-12 h-64 md:h-96 p-0 group relative">
+        <div class="absolute inset-0 bg-primary/20 z-10 mix-blend-overlay group-hover:bg-primary/10 transition-colors duration-500"></div>
+        <img
+          [src]="aboutInfraImg"
+          alt="Macro shot of glowing fiber optic cables inside a server rack"
+          class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 mix-blend-screen"
+        />
+        <div class="absolute bottom-8 left-8 z-20">
+          <p class="font-label text-primary tracking-widest text-sm mb-2 uppercase bg-background/50 px-3 py-1 rounded border border-primary/30 inline-block backdrop-blur-md shadow-[0_0_15px_rgba(173,198,255,0.4)]">System Core Image</p>
+          <p class="font-display text-on-surface text-3xl font-bold drop-shadow-[0_0_12px_rgba(218,226,253,0.8)]">Infrastructure Visualized</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

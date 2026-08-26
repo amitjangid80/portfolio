@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-20T13:30:00Z",
+  "title": "Design System: Alex Dev — Portfolio (Stitch port)",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Electric Blue", "canonical": "#adc6ff", "tonalRamp": ["#001a41", "#004493", "#005bc1", "#4b8eff", "#adc6ff", "#d8e2ff"] },
+      "primary-container": { "role": "primary", "displayName": "Primary Container", "canonical": "#4b8eff", "tonalRamp": ["#001a41", "#004493", "#005bc1", "#4b8eff", "#adc6ff", "#d8e2ff"] },
+      "inverse-primary": { "role": "primary", "displayName": "Inverse Primary (gradient dark stop)", "canonical": "#005bc1", "tonalRamp": ["#001a41", "#004493", "#005bc1", "#4b8eff", "#adc6ff", "#d8e2ff"] },
+      "secondary": { "role": "secondary", "displayName": "Emerald", "canonical": "#4edea3", "tonalRamp": ["#002113", "#005236", "#00a572", "#4edea3", "#6ffbbe"] },
+      "tertiary": { "role": "tertiary", "displayName": "Warm Tertiary", "canonical": "#ffb595", "tonalRamp": ["#351000", "#7c2e00", "#ef6719", "#ffb595", "#ffdbcc"] },
+      "error": { "role": "tertiary", "displayName": "Error / Security Accent", "canonical": "#ffb4ab", "tonalRamp": ["#690005", "#93000a", "#ffb4ab", "#ffdad6"] },
+      "background": { "role": "neutral", "displayName": "Background / Surface", "canonical": "#0b1326", "tonalRamp": ["#060e20", "#0b1326", "#131b2e", "#171f33", "#222a3d", "#2d3449"] },
+      "surface-container-lowest": { "role": "neutral", "displayName": "Surface Container Lowest", "canonical": "#060e20", "tonalRamp": ["#060e20", "#0b1326", "#131b2e", "#171f33", "#222a3d", "#2d3449"] },
+      "surface-container-low": { "role": "neutral", "displayName": "Surface Container Low", "canonical": "#131b2e", "tonalRamp": ["#060e20", "#0b1326", "#131b2e", "#171f33", "#222a3d", "#2d3449"] },
+      "surface-container": { "role": "neutral", "displayName": "Surface Container", "canonical": "#171f33", "tonalRamp": ["#060e20", "#0b1326", "#131b2e", "#171f33", "#222a3d", "#2d3449"] },
+      "surface-container-high": { "role": "neutral", "displayName": "Surface Container High", "canonical": "#222a3d", "tonalRamp": ["#060e20", "#0b1326", "#131b2e", "#171f33", "#222a3d", "#2d3449"] },
+      "surface-container-highest": { "role": "neutral", "displayName": "Surface Container Highest", "canonical": "#2d3449", "tonalRamp": ["#060e20", "#0b1326", "#131b2e", "#171f33", "#222a3d", "#2d3449"] },
+      "on-surface": { "role": "neutral", "displayName": "On Surface (primary text)", "canonical": "#dae2fd", "tonalRamp": ["#0b1326", "#414755", "#8b90a0", "#c1c6d7", "#dae2fd"] },
+      "on-surface-variant": { "role": "neutral", "displayName": "On Surface Variant (secondary text)", "canonical": "#c1c6d7", "tonalRamp": ["#0b1326", "#414755", "#8b90a0", "#c1c6d7", "#dae2fd"] },
+      "outline": { "role": "neutral", "displayName": "Outline", "canonical": "#8b90a0", "tonalRamp": ["#0b1326", "#414755", "#8b90a0", "#c1c6d7"] },
+      "outline-variant": { "role": "neutral", "displayName": "Outline Variant", "canonical": "#414755", "tonalRamp": ["#0b1326", "#414755", "#8b90a0", "#c1c6d7"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline, page H1s, contact-teaser headline — Hanken Grotesk 700." },
+      "headline": { "displayName": "Headline", "purpose": "Section H2s and card titles — Hanken Grotesk 600." },
+      "body": { "displayName": "Body", "purpose": "All reading copy — Inter 400." },
+      "label": { "displayName": "Label", "purpose": "Nav, buttons, tags, form labels, timeline dates — Geist 500." }
+    },
+    "shadows": [
+      { "name": "ambient-shadow", "value": "0 20px 40px rgba(0,0,0,0.4)", "purpose": "The single elevation shadow used on every card, panel, and the hero portrait frame. No second tier." }
+    ],
+    "motion": [
+      { "name": "reveal", "value": "opacity 0->1 + translateY(24px)->0, 700ms cubic-bezier(0.16,1,0.3,1)", "purpose": "Scroll-triggered section entrance, via Reveal.jsx + IntersectionObserver. Disabled under prefers-reduced-motion." },
+      { "name": "animate-float", "value": "translateY 0/-10px/0, 6s ease-in-out infinite", "purpose": "Hero portrait's gentle idle float." },
+      { "name": "hover-glow", "value": "box-shadow: 0 0 20px rgba(75,142,255,0.5) on hover", "purpose": "Primary gradient button hover state." }
+    ],
+    "breakpoints": [
+      { "name": "nav-collapse", "value": "768px (md:)" },
+      { "name": "grid-2-3-col", "value": "768px–1024px (md:/lg:)" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Gradient Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one CTA style across the site — electric-blue gradient fill.",
+      "html": "<a href=\"#\" class=\"ds-btn-gradient\">Let's Connect</a>",
+      "css": ".ds-btn-gradient { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist', sans-serif; font-size: 0.875rem; font-weight: 500; padding: 0.75rem 1.5rem; color: #ffffff; background: linear-gradient(135deg, #4b8eff 0%, #005bc1 100%); border-radius: 0.5rem; transition: box-shadow 0.3s ease; } .ds-btn-gradient:hover { box-shadow: 0 0 20px rgba(75,142,255,0.5); }"
+    },
+    {
+      "name": "Glass Panel",
+      "kind": "card",
+      "refersTo": "glass-panel",
+      "description": "Translucent, blurred card surface underlying timeline entries, skill/achievement cards, and the contact form.",
+      "html": "<div class=\"ds-glass-panel\">Lead Architect — Nexus Dynamics</div>",
+      "css": ".ds-glass-panel { background-color: rgba(30,41,59,0.55); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4); padding: 1.5rem; color: #dae2fd; }"
+    },
+    {
+      "name": "Project Mosaic Tile",
+      "kind": "card",
+      "refersTo": "project-tile",
+      "description": "Home page's featured-work tile — full-bleed image, gradient scrim, overlay text.",
+      "html": "<a class=\"ds-project-tile\"><img src=\"...\" /><div class=\"ds-project-tile-overlay\"><h3>Nexus Data Platform</h3></div></a>",
+      "css": ".ds-project-tile { position: relative; border-radius: 0.75rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.4); } .ds-project-tile-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,19,38,0.95), transparent); display: flex; align-items: flex-end; padding: 2rem; }"
+    },
+    {
+      "name": "Nav",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Fixed, blurred top nav with route-based active underline; anchor-only links never activate.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-mark\">ALEX.DEV</a><nav><a class=\"ds-nav-link ds-nav-link--active\">Home</a><a class=\"ds-nav-link\">About</a></nav></header>",
+      "css": ".ds-nav { position: fixed; top: 0; width: 100%; height: 5rem; background: rgba(11,19,38,0.7); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.05); } .ds-nav-link--active { color: #adc6ff; border-bottom: 2px solid #adc6ff; }"
+    },
+    {
+      "name": "Competency Bar",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "On the dedicated /skills page's Core Competencies card: label + percent row, animated fill (0 -> target% on mount) with a primary-container -> primary gradient and a soft glow.",
+      "html": "<div><div class=\"flex justify-between\"><span>System Architecture</span><span class=\"text-secondary\">95%</span></div><div class=\"ds-competency-track\"><div class=\"ds-competency-fill\" style=\"width:95%\"></div></div></div>",
+      "css": ".ds-competency-track { height: 0.5rem; background: #2d3449; border-radius: 9999px; overflow: hidden; } .ds-competency-fill { height: 100%; border-radius: 9999px; background: linear-gradient(90deg, #4b8eff, #adc6ff); box-shadow: 0 0 10px rgba(173,198,255,0.5); transition: width 1s ease-out; }"
+    },
+    {
+      "name": "Tech Arsenal Card",
+      "kind": "card",
+      "refersTo": "glass-panel",
+      "description": "On /skills: icon-in-square header + name, then a bulleted item list. The Certifications variant swaps to the secondary (emerald) accent and uses a check-style icon per item instead of a bullet.",
+      "html": "<div class=\"ds-glass-panel\"><span class=\"material-symbols-outlined\">code</span><h3>Languages</h3><ul><li>TypeScript</li></ul></div>",
+      "css": "Uses the Glass Panel component above as its base."
+    },
+    {
+      "name": "Icon",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Material Symbols Outlined ligature icon, no SVG set.",
+      "html": "<span class=\"material-symbols-outlined\">arrow_forward</span>",
+      "css": ".material-symbols-outlined { font-family: 'Material Symbols Outlined'; font-weight: normal; font-style: normal; line-height: 1; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Stitch port — dark glassmorphic pro-tool portfolio",
+    "overview": "This build replaced an earlier 'System Diagram' whiteboard concept wholesale, at explicit user instruction, with a direct port of a Google Stitch-generated concept ('Elite Professional Digital Portfolio') rebuilt on Tailwind v4. It was not produced through Impeccable's own direction-selection process. The visual identity is a dark, glassmorphic 'pro-tool' aesthetic: deep charcoal/navy surfaces, frosted glass cards, one committed electric-blue gradient accent for CTAs and active state, emerald reserved for a secondary skill-category accent, and one soft ambient shadow used everywhere instead of a tiered shadow system. Content (name, employers, stats, certifications, awards) is Stitch's fictional placeholder copy, kept intentionally as-is per instruction rather than replaced or extended — flagged throughout as needing real material before launch.",
+    "keyCharacteristics": [
+      "Deep charcoal/navy ground, never pure black — a five-step surface-container elevation ladder",
+      "One committed electric-blue gradient (#4b8eff -> #005bc1) for every CTA and the one hero gradient-text moment",
+      "Emerald and a warm tertiary are narrow secondary/tertiary accents (skill-group and achievement icons only), never co-equal brand colors",
+      "Three-typeface role split: Hanken Grotesk display/headline, Inter body, Geist label/UI chrome",
+      "Frosted glass panels (backdrop-blur) as the primary card surface; full-bleed photography under gradient scrims for project tiles",
+      "One ambient shadow value used everywhere depth is needed — no resting/hover shadow tiers",
+      "Material Symbols Outlined ligature font for all icons — zero bundled SVG icon set",
+      "Multi-page routing (/, /about, /projects, /projects/:slug, /contact) rather than a single scrolling page with anchor nav"
+    ],
+    "rules": [
+      { "name": "The One Gradient Rule", "body": "The electric-blue gradient is the only gradient fill in the system — reserved for primary CTAs and the one hero gradient-text moment. Other accents (emerald, tertiary, error) stay flat.", "section": "colors" },
+      { "name": "The Three-Role Rule", "body": "Hanken Grotesk for display/headline, Inter for body, Geist for label/UI chrome — never swapped.", "section": "typography" },
+      { "name": "The One-Shadow Rule", "body": "Every elevated surface uses the same ambient-shadow value (0 20px 40px rgba(0,0,0,0.4)). Depth differences come from the surface-container ladder, not a second shadow tier.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the electric-blue gradient as the only gradient — CTAs and the one hero gradient-text moment.",
+      "Do use the single ambient-shadow value for every elevated surface.",
+      "Do hold the three-typeface split: Hanken Grotesk display/headline, Inter body, Geist label.",
+      "Do use rounded-xl on cards/images and rounded-lg on buttons/inputs.",
+      "Do key skill-group bar/chip color off the group's own accent field in src/data/site.js."
+    ],
+    "donts": [
+      "Don't add a second CTA gradient or a second shadow tier.",
+      "Don't swap the typeface roles.",
+      "Don't replace the Material Symbols icon font with an SVG icon library.",
+      "Don't treat the placeholder content (name, employers, stats, certifications) as real."
+    ]
+  }
+}

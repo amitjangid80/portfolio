@@ -1,0 +1,46 @@
+@if (!project()) {
+  <div class="max-w-300 mx-auto px-4 md:px-10 py-10 md:py-20">
+    <h1 class="font-display text-3xl font-semibold text-on-surface mb-6">No project named "{{ slug() }}"</h1>
+    <a routerLink="/projects" class="font-label text-sm text-primary hover:text-primary-fixed transition-colors">
+      ← back to projects
+    </a>
+  </div>
+} @else {
+  <div class="max-w-300 mx-auto px-4 md:px-10 py-10 md:py-20 flex flex-col gap-10">
+    <a routerLink="/projects" class="font-label text-sm text-primary hover:text-primary-fixed transition-colors w-fit">
+      ← back to projects
+    </a>
+
+    <header appReveal class="rounded-xl overflow-hidden border border-white/10 ambient-shadow relative">
+      <img [src]="project()!.image" [alt]="project()!.name" class="w-full h-auto block" />
+      <div class="absolute inset-0 bg-linear-to-t from-background/95 via-background/60 to-transparent"></div>
+      <div class="absolute inset-0 z-10 p-5 md:p-8 flex flex-col justify-end">
+        <h1 class="font-display text-[40px] leading-12 font-bold text-on-surface mb-3">{{ project()!.name }}</h1>
+        <div class="flex flex-wrap gap-2">
+          @for (s of project()!.stack; track s) {
+            <span class="px-3 py-1 bg-primary/20 backdrop-blur-sm border border-primary/30 text-primary font-label text-sm rounded-full">{{ s }}</span>
+          }
+        </div>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div appReveal class="holo-glass-panel reveal-border-hover p-6">
+        <p class="font-label text-sm text-primary uppercase tracking-widest mb-2">Problem</p>
+        <p class="font-body text-base text-on-surface-variant">{{ project()!.problem }}</p>
+      </div>
+      <div appReveal [appRevealDelay]="1" class="holo-glass-panel reveal-border-hover p-6">
+        <p class="font-label text-sm text-primary uppercase tracking-widest mb-2">Solution</p>
+        <p class="font-body text-base text-on-surface-variant">{{ project()!.solution }}</p>
+      </div>
+      <div appReveal [appRevealDelay]="2" class="holo-glass-panel reveal-border-hover p-6">
+        <p class="font-label text-sm text-primary uppercase tracking-widest mb-2">Challenges</p>
+        <p class="font-body text-base text-on-surface-variant">{{ project()!.challenges }}</p>
+      </div>
+      <div appReveal [appRevealDelay]="3" class="holo-glass-panel reveal-border-hover p-6">
+        <p class="font-label text-sm text-primary uppercase tracking-widest mb-2">Results</p>
+        <p class="font-body text-base text-on-surface-variant">{{ project()!.results }}</p>
+      </div>
+    </div>
+  </div>
+}

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "[❗] Clearing cache"
-rm -rf .yarn/cache .nx/cache .angular node_modules yarn.lock dist package-lock.json
+rm -rf .yarn/cache .nx/cache .angular node_modules yarn.lock dist package-lock.json .pnp.cjs .pnp.loader.mjs
 
 if [ ! -f ./yarn.lock ]; then
   echo "[❗] yarn.lock File not found!"
@@ -11,15 +11,6 @@ fi
 
 echo "[⚡] Running yarn"
 yarn install
-
-echo "[⚡] Setting sdks"
-yarn dlx @yarnpkg/sdks
-
-echo "[⚡] Extracting required artifacts.."
-cd .yarn/cache
-
-fVar=$(find * -type f -name '@angular-cli-npm-*.*\.zip')
-unzip -o ${fVar} "node_modules/@angular/cli/lib/*/*" -d "./../../"
 
 echo "[⚡] Building project to verify.."
 yarn build:prod

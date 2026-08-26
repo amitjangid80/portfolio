@@ -1,0 +1,162 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-08-20T08:00:03.837Z",
+        "reason": "Geist is one of three deliberate typeface roles (Hanken Grotesk display/headline, Inter body, Geist label/UI) in the Stitch-ported design, documented in DESIGN.md Typography and .impeccable/design.json typographyMeta. Not accidental drift."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(255, 255, 255, 0.1)",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-08-20T08:00:03.868Z",
+        "reason": "The glass-panel border color, part of the documented Glass Panel component (DESIGN.md Components, .impeccable/design.json components[1])."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "material symbols outlined",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-08-20T08:27:43.089Z",
+        "reason": "The Material Symbols Outlined ligature icon font declaration, documented in DESIGN.md Components -> Icon as the sole icon system (no bundled SVG set)."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(0, 0, 0, 0.4)",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-08-20T08:27:43.113Z",
+        "reason": "The .ambient-shadow value, documented in DESIGN.md 'The One-Shadow Rule' as the single elevation shadow used everywhere."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "material symbols outlined",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-08-20T08:29:59.530Z",
+        "reason": "The Google Fonts <link> loading the Material Symbols Outlined ligature icon font, documented in DESIGN.md Components -> Icon as the sole icon system (no bundled SVG set). Same font already sanctioned for its use in src/index.css."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "material symbols outlined",
+        "files": [
+          "src/styles.css"
+        ],
+        "createdAt": "2026-08-20T14:48:58.164Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(0, 0, 0, 0.4)",
+        "files": [
+          "src/styles.css"
+        ],
+        "createdAt": "2026-08-20T14:48:58.188Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(255, 255, 255, 0.1)",
+        "files": [
+          "src/styles.css"
+        ],
+        "createdAt": "2026-08-20T14:48:58.213Z"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "src/styles.css"
+        ],
+        "createdAt": "2026-08-20T14:50:23.329Z"
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/app/pages/home/home.component.html"
+        ],
+        "createdAt": "2026-08-20T15:14:26.574Z"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/app/pages/skills/skills.component.html"
+        ],
+        "createdAt": "2026-08-21T00:51:12.072Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(255, 255, 255, 0.2)",
+        "files": [
+          "src/styles.css"
+        ],
+        "createdAt": "2026-08-23T04:28:14.576Z"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/app/pages/about/about.component.html"
+        ],
+        "createdAt": "2026-08-23T06:04:45.413Z"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/app/pages/projects/projects.component.html"
+        ],
+        "createdAt": "2026-08-23T06:05:03.093Z"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/app/pages/contact/contact.component.html"
+        ],
+        "createdAt": "2026-08-23T06:05:18.583Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(255, 255, 255, 0.12)",
+        "files": [
+          "src/styles.css"
+        ],
+        "createdAt": "2026-08-23T06:22:30.893Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(255, 255, 255, 0.15)",
+        "files": [
+          "src/styles.css"
+        ],
+        "createdAt": "2026-08-23T06:35:52.059Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(255, 255, 255, 0.3)",
+        "files": [
+          "src/styles.css"
+        ],
+        "createdAt": "2026-08-23T06:35:52.086Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(0, 0, 0, 0.5)",
+        "files": [
+          "src/styles.css"
+        ],
+        "createdAt": "2026-08-23T06:35:52.112Z"
+      }
+    ]
+  }
+}

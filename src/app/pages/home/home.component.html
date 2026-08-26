@@ -1,0 +1,194 @@
+<div class="max-w-[1600px] mx-auto px-4 md:px-6 py-6 md:py-8">
+  <div class="grid grid-cols-1 md:grid-cols-12 auto-rows-[minmax(120px,auto)] gap-4 md:gap-6">
+
+    <!-- Status / Headline -->
+    <div appReveal class="md:col-span-6 lg:col-span-3 lg:row-span-3 holo-glass-panel reveal-border-hover p-6 flex flex-col">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span>
+          <span class="font-mono text-xs text-secondary uppercase tracking-widest">System Online</span>
+        </div>
+        <div
+          class="inline-block px-3 py-1 rounded border border-primary/30 bg-primary/10 font-mono text-xs text-primary uppercase">
+          Status: Available for new opportunities
+        </div>
+      </div>
+      <div class="flex-1 flex flex-col justify-center">
+        <h1 class="font-display text-[40px] md:text-5xl font-bold mb-4 text-on-surface leading-tight tracking-tighter">
+          Building <br />Digital <br /><span class="text-primary">Excellence</span>
+        </h1>
+        <p class="font-mono text-sm text-on-surface-variant">
+          @for (line of roleLines; track line; let last = $last) {
+            {{ line }}@if (!last) {<br />}
+          }
+        </p>
+      </div>
+    </div>
+
+    <!-- Tech Graphic Hero Block -->
+    <div appReveal [appRevealDelay]="1"
+      class="md:col-span-12 lg:col-span-6 lg:row-span-3 holo-glass-panel reveal-border-hover group order-first lg:order-0 relative">
+      <div
+        class="absolute top-4 left-4 z-10 bg-background/80 backdrop-blur px-2 py-1 rounded border border-white/10 font-mono text-xs text-outline">
+        SYS_DIAGRAM_01
+      </div>
+      <div
+        class="w-full h-full min-h-100 bg-cover bg-center opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+        [style.background-image]="'url(' + heroDiagramImg + ')'"></div>
+      <div class="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent"></div>
+    </div>
+
+    <!-- Action / Contact Block -->
+    <div appReveal [appRevealDelay]="2"
+      class="md:col-span-6 lg:col-span-3 lg:row-span-1 holo-glass-panel reveal-border-hover p-6 flex flex-col justify-center items-center text-center">
+      <p class="font-mono text-sm text-on-surface-variant mb-4">Execute Connection Protocol</p>
+      <div class="flex flex-col w-full gap-3">
+        <a routerLink="/projects"
+          class="btn-gradient text-white font-mono text-xs uppercase tracking-widest px-4 py-3 rounded transition-all duration-300 flex items-center justify-center gap-2 group active:scale-95 w-full">
+          View_Projects()
+          <app-icon name="arrow_forward" [size]="16" extraClass="group-hover:translate-x-1 transition-transform" />
+        </a>
+        <a routerLink="/contact"
+          class="bg-transparent border border-primary text-on-surface font-mono text-xs uppercase tracking-widest px-4 py-3 rounded hover:border-primary hover:bg-primary hover:text-[#040812] transition-all duration-300 flex items-center justify-center active:scale-95 w-full sm:hidden">
+          Init_Connect()
+        </a>
+      </div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="md:col-span-6 lg:col-span-3 lg:row-span-2 flex flex-col gap-4 md:gap-6">
+      <div appReveal
+        class="flex-1 holo-glass-panel reveal-border-hover p-6 flex flex-col justify-center">
+        <span class="block font-display text-4xl font-bold text-primary mb-1 leading-none">{{ homeAbout.stats[0].value }}</span>
+        <span class="font-mono text-xs text-on-surface-variant uppercase tracking-widest">{{ homeAbout.stats[0].label }}</span>
+      </div>
+      <div appReveal [appRevealDelay]="1"
+        class="flex-1 holo-glass-panel reveal-border-hover p-6 flex flex-col justify-center">
+        <span class="block font-display text-4xl font-bold text-primary mb-1 leading-none">{{ homeAbout.stats[1].value }}</span>
+        <span class="font-mono text-xs text-on-surface-variant uppercase tracking-widest">{{ homeAbout.stats[1].label }}</span>
+      </div>
+    </div>
+
+    <!-- Engineering Intent -->
+    <div appReveal [appRevealDelay]="2" class="md:col-span-12 holo-glass-panel reveal-border-hover p-8">
+      <div class="flex flex-col h-full gap-8">
+        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+          <div class="flex items-center gap-3">
+            <div class="md:flex gap-1 hidden">
+              <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+              <span class="w-1.5 h-1.5 bg-primary/30 rounded-full"></span>
+            </div>
+            <h2 class="font-display text-2xl font-bold tracking-tight text-secondary uppercase">{{ homeAbout.heading }}</h2>
+          </div>
+          <a routerLink="/about"
+            class="inline-flex items-center gap-1 text-primary hover:text-primary-fixed font-mono text-xs uppercase transition-colors group">
+            Read_Bio
+            <app-icon name="arrow_right_alt" [size]="16" extraClass="group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 grow">
+          <div class="md:col-span-3 flex flex-col justify-start border-r border-white/5 pr-4">
+            <div class="mb-4">
+              <span class="font-mono text-[10px] text-outline uppercase tracking-widest block mb-1">Protocol_ID</span>
+              <span class="font-mono text-xs text-secondary font-bold">CORE_PHILOSOPHY</span>
+            </div>
+            <div class="mt-auto hidden md:block">
+              <div class="h-px w-8 bg-primary/20 mb-2"></div>
+              <span class="font-mono text-[8px] text-outline/40 uppercase tracking-widest">v2.4.0_stable</span>
+            </div>
+          </div>
+          <div class="md:col-span-9">
+            <p class="font-body text-lg text-on-surface-variant leading-relaxed opacity-90">{{ homeAbout.body }}</p>
+          </div>
+        </div>
+        <div class="flex justify-between items-center mt-auto pt-4 border-t border-white/5">
+          <div class="flex gap-4">
+            <div class="w-1 h-1 bg-white/10 rounded-full"></div>
+            <div class="w-1 h-1 bg-white/10 rounded-full"></div>
+            <div class="w-1 h-1 bg-white/10 rounded-full"></div>
+          </div>
+          <span
+            class="font-mono text-[8px] text-outline/30 uppercase tracking-[0.2em]">0x45_6E_67_69_6E_65_65_72_69_6E_67</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Modules Header -->
+    <div appReveal class="md:col-span-12 flex justify-between items-end mt-8 mb-2">
+      <div>
+        <h2 class="font-display text-2xl font-bold text-on-surface mb-1">Featured Modules</h2>
+        <p class="font-mono text-xs text-on-surface-variant uppercase hidden md:block">Selected projects demonstrating technical depth
+          and design precision.</p>
+      </div>
+      <a routerLink="/projects"
+        class="text-primary hover:text-primary-fixed font-mono text-xs uppercase flex items-center gap-1 transition-colors">
+        View_All <app-icon name="north_east" [size]="14" />
+      </a>
+    </div>
+
+    <!-- Project Modules -->
+    @for (p of featured; track p.slug; let i = $index) {
+      @if (i === 0) {
+        <a [routerLink]="['/projects', p.slug]" appReveal
+          class="md:col-span-12 lg:col-span-8 lg:row-span-3 holo-glass-panel reveal-border-hover group block relative min-h-75">
+          <div
+            class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700 opacity-60"
+            [style.background-image]="'url(' + p.image + ')'"></div>
+          <div class="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent"></div>
+          <div class="absolute top-4 right-4 flex gap-2">
+            <span
+              class="px-2 py-1 bg-background/80 backdrop-blur border border-white/10 text-outline font-mono text-[10px] uppercase rounded">MOD_0{{
+              i + 1 }}</span>
+          </div>
+          <div class="absolute bottom-0 left-0 p-6 w-full">
+            <div class="flex gap-2 mb-3 flex-wrap">
+              @for (t of (p.heroTags ?? p.stack).slice(0, 2); track t) {
+              <span
+                class="px-2 py-1 bg-primary/10 border border-primary/30 text-primary font-mono text-[10px] uppercase rounded">{{
+                t }}</span>
+              }
+            </div>
+            <h3 class="font-display text-2xl font-bold text-on-surface mb-2">{{ p.name }}</h3>
+            <p class="font-body text-on-surface-variant max-w-xl">{{ p.heroTagline }}</p>
+          </div>
+        </a>
+      } @else {
+        <a [routerLink]="['/projects', p.slug]" appReveal [appRevealDelay]="i"
+          class="md:col-span-6 lg:col-span-4 lg:row-span-1 holo-glass-panel reveal-border-hover min-h-50 group block relative">
+          <div
+            class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700 opacity-60"
+            [style.background-image]="'url(' + p.image + ')'"></div>
+          <div class="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent"></div>
+          <div class="absolute top-4 right-4">
+            <span
+              class="px-2 py-1 bg-background/80 backdrop-blur border border-white/10 text-outline font-mono text-[10px] uppercase rounded">MOD_0{{
+              i + 1 }}</span>
+          </div>
+          <div class="absolute bottom-0 left-0 p-5 w-full">
+            <h3 class="font-display text-lg font-bold text-on-surface mb-1">{{ p.name }}</h3>
+            <p class="text-sm text-on-surface-variant">{{ p.heroTagline }}</p>
+          </div>
+        </a>
+      }
+    }
+
+    <!-- Contact Teaser -->
+    <div appReveal class="md:col-span-12 holo-glass-panel reveal-border-hover px-2 py-8 text-center relative overflow-hidden mt-8">
+      <div
+        class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent pointer-events-none">
+      </div>
+      <div
+        class="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-primary to-transparent opacity-50">
+      </div>
+      <h2 class="font-display text-[32px] md:text-5xl font-bold mb-4 relative z-10 tracking-tighter text-secondary">
+        Let's build something <br class="hidden md:block" /> extraordinary.
+      </h2>
+      <p class="font-mono text-sm text-on-surface-variant max-w-xl mx-auto mb-8 relative z-10">
+        Currently accepting new projects and consulting opportunities. Reach out to discuss how we can collaborate.
+      </p>
+      <a routerLink="/contact" class="inline-block max-w-full wrap-break-word bg-primary text-[#040812] font-mono text-xs md:text-sm font-bold uppercase tracking-widest p-4 md:px-8 md:py-4 rounded hover-glow transition-all duration-300 relative z-10 active:scale-95">
+        &gt; transmit_message("{{ profile.email }}")
+      </a>
+    </div>
+  </div>
+</div>

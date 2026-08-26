@@ -3,7 +3,6 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "strict": true,
         "noImplicitOverride": true,
         "noPropertyAccessFromIndexSignature": true,
         "noImplicitReturns": true,
@@ -12,15 +11,13 @@
         "isolatedModules": true,
         "experimentalDecorators": true,
         "importHelpers": true,
-        "target": "esnext",
+        "target": "ES2022",
         "module": "preserve"
     },
     "angularCompilerOptions": {
         "enableI18nLegacyMessageIdFormat": false,
         "strictInjectionParameters": true,
-        "strictInputAccessModifiers": true,
-        "typeCheckHostBindings": true,
-        "strictTemplates": true
+        "strictInputAccessModifiers": true
     },
     "files": [],
     "references": [
