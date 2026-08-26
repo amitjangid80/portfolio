@@ -16,14 +16,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Code
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
 
             - name: Building Docker image
               run: |
                   docker build --target build-step --output type=local,dest=./out .
 
             - name: Setup Pages
-              uses: actions/configure-pages@v5
+              uses: actions/configure-pages@v6
 
             - name: Create SPA 404
               run: cp ./out/app/dist/portfolio/browser/index.html ./out/app/dist/portfolio/browser/404.html
@@ -49,4 +49,4 @@ jobs:
         steps:
             - name: Deploy to GitHub Pages
               id: deployment
-              uses: actions/deploy-pages@v4
+              uses: actions/deploy-pages@v5
