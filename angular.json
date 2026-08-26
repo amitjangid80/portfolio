@@ -39,7 +39,20 @@
                                     "maximumError": "1MB"
                                 }
                             ],
-                            "outputHashing": "all"
+                            "optimization": {
+                                "fonts": true,
+                                "scripts": true,
+                                "styles": {
+                                    "minify": true,
+                                    "inlineCritical": false
+                                }
+                            },
+                            "aot": true,
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "outputHashing": "all",
+                            "extractLicenses": false,
+                            "subresourceIntegrity": true
                         },
                         "development": {
                             "optimization": false,
