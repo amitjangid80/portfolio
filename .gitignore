@@ -23,6 +23,8 @@ package-lock.json
 *.launch
 .settings/
 *.sublime-workspace
+.playwright
+.playwright-mcp
 
 # Visual Studio Code
 .vscode/*

@@ -5,3 +5,6 @@ compatibility_date = "2026-08-26"
 routes = [
     { pattern = "portfolio.amit-jangid.in/*", zone_name = "amit-jangid.in" }
 ]
+
+[[send_email]]
+name = "EMAIL"
