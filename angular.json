@@ -51,8 +51,7 @@
                             "sourceMap": false,
                             "namedChunks": false,
                             "outputHashing": "all",
-                            "extractLicenses": false,
-                            "subresourceIntegrity": true
+                            "extractLicenses": false
                         },
                         "development": {
                             "optimization": false,
