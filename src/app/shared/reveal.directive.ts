@@ -37,6 +37,14 @@ export class RevealDirective implements OnInit, AfterViewInit, OnDestroy {
     this.rafId = requestAnimationFrame(() => {
       const node = this.el.nativeElement;
 
+      // Prerendered HTML ships with 'is-visible' already applied (see
+      // ngOnInit) so no-JS clients/crawlers see real content. JS-enabled
+      // browsers hydrate that same DOM, so without this reset every
+      // element would inherit the already-revealed state and never show
+      // the intended fade-in. Strip it and let the checks below re-derive
+      // the correct client-side state.
+      this.renderer.removeClass(node, 'is-visible');
+
       // Already on screen right now? Reveal immediately instead of relying
       // solely on the observer's first async callback — this also covers
       // elements a ratio-based threshold could never satisfy (see below).

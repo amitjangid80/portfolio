@@ -1,4 +1,4 @@
-<div class="max-w-[1600px] mx-auto px-4 md:px-6 py-6 md:py-8">
+<div class="max-w-400 mx-auto px-4 md:px-6 py-6 md:py-8">
   <div class="grid grid-cols-1 md:grid-cols-12 auto-rows-[minmax(120px,auto)] gap-4 md:gap-6">
 
     <!-- Status / Headline -->
@@ -58,12 +58,12 @@
     <!-- Metrics -->
     <div class="md:col-span-6 lg:col-span-3 lg:row-span-2 flex flex-col gap-4 md:gap-6">
       <div appReveal
-        class="flex-1 holo-glass-panel reveal-border-hover p-6 flex flex-col justify-center">
+        class="flex-1 holo-glass-panel reveal-border-hover p-6 flex flex-col justify-center items-center">
         <span class="block font-display text-4xl font-bold text-primary mb-1 leading-none">{{ homeAbout.stats[0].value }}</span>
         <span class="font-mono text-xs text-on-surface-variant uppercase tracking-widest">{{ homeAbout.stats[0].label }}</span>
       </div>
       <div appReveal [appRevealDelay]="1"
-        class="flex-1 holo-glass-panel reveal-border-hover p-6 flex flex-col justify-center">
+        class="flex-1 holo-glass-panel reveal-border-hover p-6 flex flex-col justify-center items-center">
         <span class="block font-display text-4xl font-bold text-primary mb-1 leading-none">{{ homeAbout.stats[1].value }}</span>
         <span class="font-mono text-xs text-on-surface-variant uppercase tracking-widest">{{ homeAbout.stats[1].label }}</span>
       </div>
@@ -129,7 +129,7 @@
     <!-- Project Modules -->
     @for (p of featured; track p.slug; let i = $index) {
       @if (i === 0) {
-        <a [routerLink]="['/projects', p.slug]" appReveal
+        <a [routerLink]="['/projects', p.slug]" appReveal [appRevealDelay]="1"
           class="md:col-span-12 lg:col-span-8 lg:row-span-3 holo-glass-panel reveal-border-hover group block relative min-h-75">
           <div
             class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700 opacity-60"
@@ -153,7 +153,7 @@
           </div>
         </a>
       } @else {
-        <a [routerLink]="['/projects', p.slug]" appReveal [appRevealDelay]="i"
+        <a [routerLink]="['/projects', p.slug]" appReveal [appRevealDelay]="i + 1"
           class="md:col-span-6 lg:col-span-4 lg:row-span-1 holo-glass-panel reveal-border-hover min-h-50 group block relative">
           <div
             class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700 opacity-60"

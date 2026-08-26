@@ -7,6 +7,7 @@
 /bazel-out
 /playwright-report
 /test-results
+/.playwright-mcp
 
 # Node
 /node_modules
