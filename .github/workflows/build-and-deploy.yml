@@ -39,7 +39,7 @@ jobs:
                   if [ -f CNAME ]; then cp CNAME $DIST/CNAME; else echo portfolio.amit-jangid.in > $DIST/CNAME; fi
 
             - name: Upload artifact
-              uses: actions/upload-pages-artifact@v3
+              uses: actions/upload-pages-artifact@v5
               with:
                   path: ./out/app/dist/portfolio/browser
 
