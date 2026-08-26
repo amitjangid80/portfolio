@@ -8,7 +8,7 @@
             "schematics": {},
             "root": "",
             "sourceRoot": "src",
-            "prefix": "aj",
+            "prefix": "app",
             "architect": {
                 "build": {
                     "builder": "@angular/build:application",
@@ -23,7 +23,12 @@
                         ],
                         "styles": [
                             "src/styles.css"
-                        ]
+                        ],
+                        "server": "src/main.server.ts",
+                        "outputMode": "static",
+                        "security": {
+                            "allowedHosts": []
+                        }
                     },
                     "configurations": {
                         "production": {
@@ -89,6 +94,15 @@
                         ],
                         "styles": [
                             "src/styles.css"
+                        ]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "src/**/*.ts",
+                            "src/**/*.html"
                         ]
                     }
                 }

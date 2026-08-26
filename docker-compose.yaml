@@ -9,7 +9,7 @@ services:
         restart: unless-stopped
 
         ports:
-            - '4200:8484'
+            - "4200:8686"
         networks:
             - dev_net
 

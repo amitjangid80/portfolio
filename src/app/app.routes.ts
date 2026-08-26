@@ -7,10 +7,10 @@ import { ProjectDetailComponent } from './pages/project-detail/project-detail.co
 import { ContactComponent } from './pages/contact/contact.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'skills', component: SkillsComponent },
-  { path: 'projects', component: ProjectsComponent },
-  { path: 'projects/:slug', component: ProjectDetailComponent },
-  { path: 'contact', component: ContactComponent },
+    { path: '', component: HomeComponent },
+    { path: 'about', component: AboutComponent },
+    { path: 'skills', component: SkillsComponent },
+    { path: 'projects', component: ProjectsComponent },
+    { path: 'projects/:slug', component: ProjectDetailComponent },
+    { path: 'contact', component: ContactComponent },
 ];
