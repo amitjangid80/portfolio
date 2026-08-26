@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { nav, NavItem, profile } from '../../data/site';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IconComponent } from '../../shared/icon/icon.component';
-import { nav, profile } from '../../data/site';
+import { Component, signal, WritableSignal } from '@angular/core';
 
 @Component({
-  selector: 'app-nav',
-  imports: [RouterLink, RouterLinkActive, IconComponent],
-  template: `
+    selector: 'app-nav',
+    imports: [RouterLink, RouterLinkActive, IconComponent],
+    template: `
     <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-primary/20 shadow-2xl">
       <div class="flex justify-between items-center h-16 px-6 md:px-8 max-w-300 mx-auto">
         <a routerLink="/" class="flex items-center gap-2 font-display text-xl font-bold tracking-tighter text-primary">
@@ -65,7 +65,7 @@ import { nav, profile } from '../../data/site';
   `,
 })
 export class NavComponent {
-  protected readonly nav = nav;
-  protected readonly profile = profile;
-  protected readonly open = signal(false);
+    protected readonly profile = profile;
+    protected readonly nav: NavItem[] = nav;
+    protected readonly open: WritableSignal<boolean> = signal(false);
 }

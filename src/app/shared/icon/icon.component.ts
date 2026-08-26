@@ -1,9 +1,9 @@
-import { Component, input } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 
 @Component({
-  selector: 'app-icon',
-  host: { style: 'display: contents;' },
-  template: `
+    selector: 'app-icon',
+    host: { style: 'display: contents;' },
+    template: `
     <span
       class="material-symbols-outlined"
       [class]="extraClass()"
@@ -12,7 +12,7 @@ import { Component, input } from '@angular/core';
   `,
 })
 export class IconComponent {
-  readonly name = input.required<string>();
-  readonly size = input<number>(20);
-  readonly extraClass = input<string>('');
+    readonly name: InputSignal<string> = input.required<string>();
+    readonly size: InputSignal<number> = input<number>(20);
+    readonly extraClass: InputSignal<string> = input<string>('');
 }

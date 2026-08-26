@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { IconComponent } from '../../shared/icon/icon.component';
+import { Project, projects } from '../../data/site';
 import { RevealDirective } from '../../shared/reveal.directive';
-import { projects } from '../../data/site';
+import { IconComponent } from '../../shared/icon/icon.component';
 
 @Component({
-  selector: 'app-projects',
-  imports: [RouterLink, IconComponent, RevealDirective],
-  templateUrl: './projects.component.html',
+    selector: 'app-projects',
+    templateUrl: './projects.component.html',
+    imports: [RouterLink, IconComponent, RevealDirective],
 })
 export class ProjectsComponent {
-  protected readonly projects = projects;
+    protected readonly projects: Project[] = projects;
 
-  protected delayFor(index: number): number {
-    return Math.min(index + 1, 5);
-  }
+    protected delayFor(index: number): number {
+        return Math.min(index + 1, 5);
+    }
 }

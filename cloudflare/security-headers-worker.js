@@ -49,23 +49,29 @@ function escapeHtml(value) {
         .replace(/"/g, '&quot;');
 }
 
+const NAME_RE = /^[A-Za-z ]+$/;
 // Loose bound, not a strict RFC 5322 validator — good enough to catch
 // obviously-wrong input before it reaches the email API.
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const EMAIL_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+const SUBJECT_RE = /^[A-Za-z0-9 ]+$/;
+// Same alphanumeric-plus-space rule as subject, extended with the common
+// punctuation a real message needs (periods, commas, apostrophes, etc.)
+// and newlines, since this comes from a multi-line textarea.
+const MESSAGE_RE = /^[A-Za-z0-9 .,!?'\-:\r\n]+$/;
 
 function validateContactPayload(body) {
     const { name, email, subject, message } = body ?? {};
 
-    if (typeof name !== 'string' || name.trim().length === 0 || name.length > 100) {
+    if (typeof name !== 'string' || name.trim().length === 0 || name.length > 100 || !NAME_RE.test(name)) {
         return 'Invalid name';
     }
     if (typeof email !== 'string' || !EMAIL_RE.test(email) || email.length > 200) {
         return 'Invalid email';
     }
-    if (typeof subject !== 'string' || subject.trim().length === 0 || subject.length > 200) {
+    if (typeof subject !== 'string' || subject.trim().length === 0 || subject.length > 200 || !SUBJECT_RE.test(subject)) {
         return 'Invalid subject';
     }
-    if (typeof message !== 'string' || message.trim().length === 0 || message.length > 5000) {
+    if (typeof message !== 'string' || message.trim().length === 0 || message.length > 5000 || !MESSAGE_RE.test(message)) {
         return 'Invalid message';
     }
     return null;

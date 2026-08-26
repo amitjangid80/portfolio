@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <div appReveal [appRevealDelay]="2" class="grid grid-cols-3 gap-4">
+      <div appReveal [appRevealDelay]="2" class="grid grid-cols-2 gap-4">
         @for (s of socials; track s.label) {
           <a
             [href]="s.href"
@@ -42,7 +42,9 @@
         }
       </div>
 
-      <div appReveal [appRevealDelay]="3" class="holo-glass-panel reveal-border-hover h-40 flex flex-col items-center justify-center gap-1 relative mt-auto hud-tech-grid">
+      <div appReveal [appRevealDelay]="3" class="holo-glass-panel reveal-border-hover h-40 flex flex-col items-center justify-center gap-1 relative mt-auto">
+        <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('/images/maps.jpeg')"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent"></div>
         <app-icon name="location_on" extraClass="text-primary relative z-10" />
         <span class="font-label text-sm text-on-surface uppercase tracking-wider relative z-10">Mira Bhayandar, MH, IN</span>
       </div>
@@ -63,8 +65,10 @@
               required
               type="text"
               placeholder="John Doe"
+              [pattern]="namePattern"
+              title="Letters and spaces only"
               [value]="name()"
-              (input)="name.set($any($event.target).value)"
+              (input)="onNameInput($event)"
               class="bg-surface-container text-on-surface border border-outline-variant rounded-lg p-3 font-body text-base focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors"
             />
           </div>
@@ -73,12 +77,20 @@
             <input
               id="email"
               required
-              type="email"
+              type="text"
+              inputmode="email"
+              autocomplete="email"
               placeholder="john@example.com"
+              [pattern]="emailPattern"
+              title="A valid email address"
               [value]="email()"
-              (input)="email.set($any($event.target).value)"
+              (input)="onEmailInput($event)"
+              (blur)="emailTouched.set(true)"
               class="bg-surface-container text-on-surface border border-outline-variant rounded-lg p-3 font-body text-base focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors"
             />
+            @if (emailInvalid()) {
+              <span class="font-body text-xs text-error">Enter a valid email address.</span>
+            }
           </div>
         </div>
         <div class="flex flex-col gap-1">
@@ -102,7 +114,7 @@
             rows="6"
             placeholder="Enter transmission data..."
             [value]="message()"
-            (input)="message.set($any($event.target).value)"
+            (input)="onMessageInput($event)"
             class="bg-surface-container text-on-surface border border-outline-variant rounded-lg p-3 font-body text-base focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors resize-none"
           ></textarea>
         </div>
@@ -111,6 +123,7 @@
             @switch (status()) {
               @case ('sent') { Transmission received. I'll be in touch. }
               @case ('error') { Transmission failed. Try again, or reach out directly via the links above. }
+              @case ('invalid') { Name, email, or message contains characters that aren't allowed. }
               @default { Sends directly — no email client required. }
             }
           </p>

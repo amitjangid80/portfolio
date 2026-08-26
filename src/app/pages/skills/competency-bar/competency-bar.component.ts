@@ -1,8 +1,8 @@
-import { Component, input, signal, afterNextRender } from '@angular/core';
+import { Component, input, signal, afterNextRender, InputSignal, WritableSignal } from '@angular/core';
 
 @Component({
-  selector: 'app-competency-bar',
-  template: `
+    selector: 'app-competency-bar',
+    template: `
     <div class="flex flex-col gap-2 font-label text-sm">
       <div class="flex justify-between items-center">
         <span class="text-on-surface">{{ label() }}</span>
@@ -18,14 +18,14 @@ import { Component, input, signal, afterNextRender } from '@angular/core';
   `,
 })
 export class CompetencyBarComponent {
-  readonly label = input.required<string>();
-  readonly percent = input.required<number>();
+    readonly label: InputSignal<string> = input.required<string>();
+    readonly percent: InputSignal<number> = input.required<number>();
 
-  protected readonly width = signal(0);
+    protected readonly width: WritableSignal<number> = signal(0);
 
-  constructor() {
-    afterNextRender(() => {
-      setTimeout(() => this.width.set(this.percent()), 300);
-    });
-  }
+    constructor () {
+        afterNextRender((): void => {
+            setTimeout((): void => this.width.set(this.percent()), 300);
+        });
+    }
 }

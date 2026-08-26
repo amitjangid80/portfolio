@@ -10,8 +10,8 @@ const featured: Project[] = featuredProjectSlugs
 
 @Component({
     selector: 'app-home',
-    imports: [RouterLink, IconComponent, RevealDirective],
     templateUrl: './home.component.html',
+    imports: [RouterLink, IconComponent, RevealDirective],
 })
 export class HomeComponent {
     protected readonly profile = profile;
