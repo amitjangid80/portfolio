@@ -1,16 +1,15 @@
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter, withInMemoryScrolling, withComponentInputBinding, withPreloading, PreloadAllModules, withHashLocation } from '@angular/router';
+import { provideRouter, withPreloading, PreloadAllModules, withInMemoryScrolling, withComponentInputBinding } from '@angular/router';
 
 export const appConfig: ApplicationConfig = {
     providers: [
         provideBrowserGlobalErrorListeners(),
         provideRouter(
             routes,
-            withHashLocation(),
             withPreloading(PreloadAllModules),
-            withInMemoryScrolling({ scrollPositionRestoration: 'top', anchorScrolling: 'enabled' }),
+            withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'top' }),
             withComponentInputBinding()
         ),
         provideClientHydration()
