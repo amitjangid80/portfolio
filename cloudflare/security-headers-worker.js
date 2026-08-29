@@ -41,6 +41,16 @@ function json(body, status = 200) {
     });
 }
 
+// GitHub Pages does not serve dot-prefixed paths at all (confirmed: even
+// .nojekyll 404s despite being present in the deployed artifact) — this
+// isn't Jekyll's build-time exclusion, .nojekyll doesn't fix it. Served
+// from the Worker instead, same pattern as /api/contact.
+const SECURITY_TXT = `Contact: mailto:contact.amit.jangid@gmail.com
+Expires: 2027-08-29T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://portfolio.amit-jangid.in/.well-known/security.txt
+`;
+
 function escapeHtml(value) {
     return value
         .replace(/&/g, '&amp;')
@@ -119,6 +129,10 @@ async function handleContact(request, env) {
 export default {
     async fetch(request, env) {
         const url = new URL(request.url);
+
+        if (url.pathname === '/.well-known/security.txt') {
+            return new Response(SECURITY_TXT, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+        }
 
         if (url.pathname === '/api/contact') {
             if (request.method !== 'POST') {
