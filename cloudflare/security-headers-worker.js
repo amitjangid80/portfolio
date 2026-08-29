@@ -82,7 +82,7 @@ function escapeHtml(value) {
 const NAME_RE = /^[A-Za-z ]+$/;
 // Loose bound, not a strict RFC 5322 validator — good enough to catch
 // obviously-wrong input before it reaches the email API.
-const EMAIL_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+const EMAIL_RE = /^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$/;
 const SUBJECT_RE = /^[A-Za-z0-9 ]+$/;
 // Same alphanumeric-plus-space rule as subject, extended with the common
 // punctuation a real message needs (periods, commas, apostrophes, etc.)

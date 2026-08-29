@@ -21,7 +21,12 @@ const subjectOptions: string[] = ['Project Inquiry', 'Career Opportunity', 'Cont
 // the Angular app and the Worker, so both sides validate independently.
 const NAME_PATTERN = /^[A-Za-z ]+$/;
 const MESSAGE_PATTERN = /^[A-Za-z0-9 .,!?'\-:\r\n]+$/;
-const EMAIL_PATTERN = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+// A trailing unescaped '-' is a valid literal in legacy regex (which is why
+// eslint calls the escape below "useless"), but the browser compiles the
+// `pattern` HTML attribute with the newer 'v' flag (Unicode Sets mode),
+// which rejects it outright: "Invalid character in character class".
+// eslint-disable-next-line no-useless-escape
+const EMAIL_PATTERN = /^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$/;
 
 // Stripped live as the user types, before the full patterns above are
 // checked on blur/submit. Name and message use the exact inverse of their
@@ -33,7 +38,8 @@ const EMAIL_PATTERN = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 // that could never appear in ANY email — the full shape is still checked
 // on blur/submit.
 const NAME_TYPING_RE = /[^A-Za-z ]/g;
-const EMAIL_TYPING_RE = /[^A-Za-z0-9._%+@-]/g;
+// eslint-disable-next-line no-useless-escape -- kept in sync with EMAIL_PATTERN above
+const EMAIL_TYPING_RE = /[^A-Za-z0-9._%+@\-]/g;
 const MESSAGE_TYPING_RE = /[^A-Za-z0-9 .,!?'\-:\r\n]/g;
 
 @Component({
