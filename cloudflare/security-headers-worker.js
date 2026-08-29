@@ -41,7 +41,6 @@ const STATIC_HEADERS = {
     'Permissions-Policy':
         'accelerometer=(), ambient-light-sensor=(), autoplay=(), bluetooth=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), publickey-credentials-get=(), screen-wake-lock=(), usb=(), xr-spatial-tracking=()',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
-    'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
     'X-Content-Type-Options': 'nosniff',
     'X-DNS-Prefetch-Control': 'off',
     'X-Frame-Options': 'DENY',
