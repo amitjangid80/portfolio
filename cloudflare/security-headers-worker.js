@@ -9,8 +9,28 @@
 // parses the outgoing CSP header and stamps that same nonce onto its
 // injected script, so it executes without weakening script-src for
 // everything else.
+//
+// Angular's own SSG output also ships small inline bootstrap scripts for
+// its event-delegation/hydration ("jsaction") system, baked statically at
+// build time — a per-request nonce can't cover these since they're fixed
+// bytes in the static HTML, not something the Worker injects. Allowlisted
+// by sha256 hash instead (the CSP-spec-correct mechanism for known-static
+// inline content). Three distinct scripts exist across the site today:
+// the shared framework "contract" script, the standard bootstrap call
+// (most pages), and the contact page's bootstrap call (registers extra
+// event types for its form). Re-derive these if Angular's version changes
+// or a page's event bindings change — a stale hash just re-blocks that
+// script, it doesn't silently allow anything unintended.
+const ANGULAR_INLINE_SCRIPT_HASHES = [
+    "'sha256-VM2mZqyEQZoLzoTrp5EigFvzQ0+f1wSeBuoOn95WHCg='", // ng-event-dispatch-contract
+    "'sha256-8sGKvDKC8crv9OBcqEMvqrNDWlm1/80h7NJpJzqOnLI='", // __jsaction_bootstrap, standard pages
+    "'sha256-Ij8wq2bQuGJ9gO7nLSrw32dIdcfhGiyavxPr53LsDo8='", // __jsaction_bootstrap, /contact
+];
+
 function cspFor(nonce) {
-    return `default-src 'self'; frame-src 'none'; media-src 'none'; child-src 'none'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'nonce-${nonce}' https://static.cloudflareinsights.com/beacon.min.js/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self'; form-action 'self'; manifest-src 'self'; worker-src 'self' blob:; require-trusted-types-for 'script'; trusted-types angular angular#bundler angular#components angular#unsafe-bypass; upgrade-insecure-requests`;
+    const scriptSrc = `script-src 'self' 'nonce-${nonce}' ${ANGULAR_INLINE_SCRIPT_HASHES.join(' ')} https://static.cloudflareinsights.com/beacon.min.js/`;
+
+    return `default-src 'self'; frame-src 'none'; media-src 'none'; child-src 'none'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; ${scriptSrc}; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self'; form-action 'self'; manifest-src 'self'; worker-src 'self' blob:; require-trusted-types-for 'script'; trusted-types angular angular#bundler angular#components angular#unsafe-bypass; upgrade-insecure-requests`;
 }
 
 const STATIC_HEADERS = {
