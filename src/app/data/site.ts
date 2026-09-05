@@ -123,8 +123,8 @@ export const about: AboutContent = {
     eyebrow: 'Module: Identity_Core',
     tags: ['Microservices', 'CQRS', 'System Design', 'Golang'],
     paragraphs: [
-        "I'm a Full Stack Tech Lead with 10+ years of experience designing scalable, microservices-based architectures across web, mobile and backend platforms. My work spans CQRS-based backend microservices, WebSocket-driven BFF services, and dynamic, environment-driven caching strategies that eliminate redeployment overhead and enable real-time, high-throughput performance at scale.",
-        "I lead a team of 5-6 engineers, driving system design decisions and shipping production-grade solutions on Angular, Node.js, Golang and Java across AWS, Kubernetes and Docker.",
+        "With over 10 years of experience in software development, I specialize in designing scalable, business-driven applications across mobile, web, and backend technologies. Currently, as a Tech Lead at FSS, I have contributed to the creation of a modular, low-code platform leveraging Angular, Node.js, WebSocket, Golang, ArangoDB, and Kubernetes. I have implemented Clean Architecture principles in backend services and CQRS-based solutions to ensure scalability and alignment with business needs.",
+        "My work is defined by a commitment to enhancing development efficiency and optimizing performance. I played a critical role in improving a Node.js service that generates Angular code, drastically reducing generation time. Additionally, my contributions include real-time data synchronization through WebSocket-based Backend for Frontend services, delivering seamless user experiences. I thrive on building adaptable, high-performance systems that drive innovation and efficiency.",
     ],
 };
 
