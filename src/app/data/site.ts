@@ -269,9 +269,9 @@ export const projects: Project[] = [
     },
     {
         slug: 'auth-server-be',
-        stack: ['Go', 'JWT', 'gRPC'],
+        stack: ['Go', 'gRPC', 'MongoDB'],
         image: '/images/proj-auth-server.jpeg',
-        name: 'JWT Authentication Microservice',
+        name: 'Auth Server Microservice',
         problem: 'Each backend service needed its own way to issue and validate user sessions, risking inconsistent auth logic and duplicated login flows across services.',
         challenges: 'Keeping token validation fast enough to call synchronously from other services over gRPC, while still supporting cookie-based sessions for browser clients.',
         results: 'A single source of truth for authentication across the system, with dependent services validating tokens via a gRPC call instead of maintaining their own auth logic.',
