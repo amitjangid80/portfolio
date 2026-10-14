@@ -57,3 +57,6 @@ yarn.lock
 !.yarn/sdks
 !.yarn/versions
 .nx/cache/
+
+# Wrangler
+.wrangler
